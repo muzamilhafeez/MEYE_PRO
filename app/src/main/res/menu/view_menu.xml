@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_Admin_Home"
+        android:title="Teacher"
+        android:icon="@drawable/ic_baseline_person"/>
+    <item
+        android:id="@+id/action_Admin_View"
+        android:title="Venue"
+        android:icon="@drawable/ic_baseline_view_list"/>
+    <item
+        android:id="@+id/action_Admin_Setting"
+        android:title="DVR"
+        android:icon="@drawable/ic_baseline_dvr"/>
+
+</menu>
