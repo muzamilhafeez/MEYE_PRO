@@ -2,7 +2,9 @@ package com.example.meyepro.fragments.Admin;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager2.widget.ViewPager2;
@@ -10,6 +12,8 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.meyepro.R;
 import com.example.meyepro.adapters.AdminViewTeacherAdapter;
@@ -86,4 +90,39 @@ FragmentAdminViewBinding Binding;
         ft.replace(R.id.frament_container_admin, f);
         ft.commit();
     }
+
+//    //on back press
+//    @Override public void onBackPressed() {
+//        Fragment fragment = requireActivity().getgetSupportFragmentManager().findFragmentById(R.id.fragment_container);
+//        if (!(fragment instanceof HomeFragment)) {
+//            loadFragment(new HomeFragment());
+//        }
+//        else { super.onBackPressed();
+//        }
+//    }
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                             Bundle savedInstanceState) {
+//        System.out.println("jjjjjjjj");
+//        View view = inflater.inflate(R.layout.fragment_admin_view, container, false);
+//        Toolbar toolbar = view.findViewById(R.id.fragment_admin_view);
+//        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+//        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        return view;
+//    }
+//public void onBackPressed() {
+//    System.out.println("jjjjjjjj");
+//    // View mBottomNavigationView = requireActivity().findViewById(R.id.bottom_nav_admin);
+//    Fragment fragment = requireActivity().getSupportFragmentManager().findFragmentById(R.id.frament_container_admin);
+//    if (!(fragment instanceof AdminViewFragment)) {
+//        loadFragment(new AdminHomeFragment());
+//      System.out.println("jjjjjjjj");
+//    }
+//    else { //super.onBackPressed();
+//        //super.requireActivity().onBackPressed();
+//    }
+//
+//}
+
+
 }

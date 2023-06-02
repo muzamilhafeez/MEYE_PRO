@@ -3,24 +3,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey_50"
     tools:context=".fragments.Admin.view.Teacher.Teacher.AdminViewTabTeacherScheduleFragment">
+
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="30dp"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginLeft="5dp"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardCornerRadius="10dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="true">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/profile_image_teacher"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_row="0"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_column="0"
+                    android:layout_margin="5dp"
+                    android:adjustViewBounds="true"
+                    android:elevation="5dp"
+                    android:maxWidth="50dp"
+                    android:maxHeight="50dp"
+                    android:scaleType="fitXY"
+                    android:background="@color/white"
+                    android:src="@drawable/image_icon"
+                    app:shapeAppearanceOverlay="@style/imageViewRounded"
+                    app:strokeColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/textView_Teacher_Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="42dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Teacher"
+                    android:elevation="15dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    />
+            </GridLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
         <!--time show title-->
         <TableRow
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
-
             <TextView
-
                 android:text=""
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:textColor="#000000"
 
                 android:layout_gravity="center"
                 android:gravity="center"/>
@@ -30,12 +84,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Mon"
                     android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:text="Mon"/>
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -99,272 +153,832 @@
                     android:textStyle="bold"
                     android:text="Fri"/>
             </TableRow>
+
         </TableRow>
-            <!--time show row one-->
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
+       <!--            row one time table-->
 
-            <TextView
-
-                android:text="8:30\n10:00"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:textColor="#000000"
-
-                android:layout_gravity="center"
-                android:gravity="center"/>
-            <TableRow
-                android:layout_weight="1"
-                android:layout_gravity="center">
-
-                <Spinner
-                    android:id="@+id/spinner_row_one_monday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawSelectorOnTop="true"
-                    android:gravity="left"
-                    android:textColor="@color/white" />
-
-            </TableRow>
-
-
-            <TableRow
-                android:layout_weight="1"
-                android:layout_gravity="center">
-
-                <Spinner
-                    android:id="@+id/spinner_row_one_Tuesday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawSelectorOnTop="true"
-                    android:gravity="left"
-                    android:textColor="@color/white" />
-
-            </TableRow>
-            <TableRow
-                android:layout_weight="1"
-                android:layout_gravity="center">
-
-                <Spinner
-                    android:id="@+id/spinner_row_one_Wednesday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawSelectorOnTop="true"
-                    android:gravity="left"
-                    android:textColor="@color/white" />
-
-            </TableRow>
-            <TableRow
-                android:layout_weight="1"
-                android:layout_gravity="center">
-
-                <Spinner
-                    android:id="@+id/spinner_row_one_Thursday"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawSelectorOnTop="true"
-                    android:gravity="left"
-                    android:textColor="@color/white" />
-
-            </TableRow>
-            <TableRow
-                android:layout_weight="1"
-                android:layout_gravity="center">
-
-                <Spinner
-                    android:id="@+id/spinner_row_one_Friday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawSelectorOnTop="true"
-                    android:gravity="left"
-                    android:textColor="@color/white" />
-
-            </TableRow>
-        </TableRow>
-        <!--time show row two-->
         <TableRow
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
+        <!--            time show-->
 
-            <TextView
-
-                android:text="10:00\n11:30"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:textColor="#000000"
-
-                android:layout_gravity="center"
-                android:gravity="center"/>
             <TableRow
                 android:layout_weight="1"
+                android:gravity="center"
                 android:layout_gravity="center">
-
-                <Spinner
-                    android:id="@+id/spinner_row_two_monday"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawSelectorOnTop="true"
-                    android:gravity="left"
-                    android:textColor="@color/white" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="08:30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:textColor="#000000"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:id="@+id/txt_view_row_time_1"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+                    <TextView
+                        android:text="10:00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/txt_view_row_time__end_1"
+                        android:background="@color/white"
+                        android:textColor="#000000"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+                </LinearLayout>
 
             </TableRow>
 
 
+            <!--monday row 1-->
             <TableRow
                 android:layout_weight="1"
                 android:layout_gravity="center">
-
-                <Spinner
-                    android:id="@+id/spinner_row_two_Tuesday"
+                <ScrollView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawSelectorOnTop="true"
-                    android:gravity="left"
-                    android:textColor="@color/white" />
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Monday_row_1"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
 
             </TableRow>
+
+            <!--monday tuesday row 1-->
             <TableRow
                 android:layout_weight="1"
                 android:layout_gravity="center">
-
-                <Spinner
-                    android:id="@+id/spinner_row_two_Wednesday"
+                <ScrollView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawSelectorOnTop="true"
-                    android:gravity="left"
-                    android:textColor="@color/white" />
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Tuesday_row_1"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
 
             </TableRow>
+
+
+            <!--monday tuesday row 1-->
+
             <TableRow
                 android:layout_weight="1"
                 android:layout_gravity="center">
-
-                <Spinner
-                    android:id="@+id/spinner_row_two_Thursday"
-
+                <ScrollView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawSelectorOnTop="true"
-                    android:gravity="left"
-                    android:textColor="@color/white" />
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Wednesday_row_1"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
 
             </TableRow>
+
+            <!--monday thursday -row 1-->
             <TableRow
                 android:layout_weight="1"
                 android:layout_gravity="center">
-
-                <Spinner
-                    android:id="@+id/spinner_row_two_Friday"
+                <ScrollView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawSelectorOnTop="true"
-                    android:gravity="left"
-                    android:textColor="@color/white" />
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Thursday_row_1"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
 
             </TableRow>
+
+
+            <!--monday friday row 1-->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Friday_row_1"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+
         </TableRow>
-        <!--time show row three-->
+        <!--            row two time table-->
         <TableRow
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
-
-            <TextView
-
-                android:text="11:30\n1:00"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:textColor="#000000"
-
-                android:layout_gravity="center"
-                android:gravity="center"/>
+            <!--            time show-->
             <TableRow
                 android:layout_weight="1"
+                android:gravity="center"
                 android:layout_gravity="center">
-
-                <Spinner
-                    android:id="@+id/spinner_row_three_monday"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawSelectorOnTop="true"
-                    android:gravity="left"
-                    android:textColor="@color/white" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_view_row_time_2"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="10:00"
+                        android:textColor="#000000"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:text="11:30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/txt_view_row_time__end_2"
+                        android:background="@color/white"
+                        android:textColor="#000000"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+                </LinearLayout>
+
 
             </TableRow>
 
-
+            <!--monday row 1-->
             <TableRow
                 android:layout_weight="1"
                 android:layout_gravity="center">
-
-                <Spinner
-                    android:id="@+id/spinner_row_three_Tuesday"
+                <ScrollView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawSelectorOnTop="true"
-                    android:gravity="left"
-                    android:textColor="@color/white" />
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Monday_row_2"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
 
             </TableRow>
+
+            <!--monday tuesday row 1-->
+
             <TableRow
                 android:layout_weight="1"
                 android:layout_gravity="center">
-
-                <Spinner
-                    android:id="@+id/spinner_row_three_Wednesday"
+                <ScrollView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawSelectorOnTop="true"
-                    android:gravity="left"
-                    android:textColor="@color/white" />
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Tuesday_row_2"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
 
             </TableRow>
+
+            <!--monday thursday -row 1-->
             <TableRow
                 android:layout_weight="1"
                 android:layout_gravity="center">
-
-                <Spinner
-                    android:id="@+id/spinner_row_three_Thursday"
-
+                <ScrollView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawSelectorOnTop="true"
-                    android:gravity="left"
-                    android:textColor="@color/white" />
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Wednesday_row_2"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
 
             </TableRow>
+
+            <!--monday friday row 1-->
             <TableRow
                 android:layout_weight="1"
                 android:layout_gravity="center">
-
-                <Spinner
-                    android:id="@+id/spinner_row_three_Friday"
+                <ScrollView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawSelectorOnTop="true"
-                    android:gravity="left"
-                    android:textColor="@color/white" />
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Thursday_row_2"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+
+<!--                android:gravity="center"/>-->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Friday_row_2"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
 
             </TableRow>
         </TableRow>
+
+        <!--            row three time table-->
+        <!--            row two time table-->
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <!--            time show-->
+           <TableRow
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_view_row_time_3"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="11:30"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:text="1:00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:id="@+id/txt_view_row_time__end_3"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+
+        </TableRow>
+
+            <!--monday row 1-->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_monday_row_3"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+
+            <!--monday tuesday row 1-->
+
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Tuesday_row_3"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+
+            <!--monday thursday -row 1-->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Wednesday_row_3"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+
+            <!--monday friday row 1-->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Thursday_row_3"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+
+            <!--                android:gravity="center"/>-->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Friday_row_3"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+        </TableRow>
+        <!--            row four time table-->
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <!--            time show-->
+            <TableRow
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_view_row_time_4"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="01:30"
+                        android:textColor="#000000"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:text="03:00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:id="@+id/txt_view_row_time__end_4"
+                        android:textColor="#000000"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+
+            </TableRow>
+
+            <!--monday row 1-->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Monday_row_4"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+
+            <!--monday tuesday row 1-->
+
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Tuesday_row_4"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+
+            <!--monday thursday -row 1-->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Wednesday_row_4"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+
+            <!--monday friday row 1-->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Thursday_row_4"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+
+            <!--                android:gravity="center"/>-->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Friday_row_4"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+        </TableRow>
+        <!--            row five time table-->
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <!--            time show-->
+            <TableRow
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_view_row_time_5"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="03:00"
+                        android:textColor="#000000"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:text="04:30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:id="@+id/txt_view_row_time__end_5"
+                        android:textColor="#000000"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+
+            </TableRow>
+
+            <!--monday row 1-->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Monday_row_5"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+
+            <!--monday tuesday row 1-->
+
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Tuesday_row_5"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+
+            <!--monday thursday -row 1-->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Wednesday_row_5"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+
+            <!--monday friday row 1-->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Thursday_row_5"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+
+            <!--                android:gravity="center"/>-->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingLeft="5dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/timetable_cell_border"
+                    android:scrollbars="vertical">
+                    <TextView
+                        android:id="@+id/txt_view_Friday_row_5"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:textStyle="bold"
+                        />
+
+                </ScrollView>
+
+            </TableRow>
+        </TableRow>
+
     </LinearLayout>
+<!--   reow end-->
 
 </FrameLayout>

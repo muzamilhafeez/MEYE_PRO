@@ -1,41 +1,57 @@
 package com.example.meyepro.models;
 
 public class CAMERA {
-  int  ID ;
-  int  DID ;
-  int  V_ID ;
+    private int id;
+    private int dvrID;
+    private int venueID;
+    private String portNumber;
+    private String venueName;
 
-    public int getID() {
-        return ID;
+    public String getVenueName() {
+        return venueName;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setVenueName(String venueName) {
+        this.venueName = venueName;
     }
 
-    public int getDID() {
-        return DID;
+    public CAMERA(int id, int dvrID, int venueID, String portNumber, String venueName) {
+        this.id = id;
+        this.dvrID = dvrID;
+        this.venueID = venueID;
+        this.portNumber = portNumber;
+        this.venueName = venueName;
     }
 
-    public void setDID(int DID) {
-        this.DID = DID;
+    public int getId() {
+        return id;
     }
 
-    public int getV_ID() {
-        return V_ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setV_ID(int v_ID) {
-        V_ID = v_ID;
+    public int getDvrID() {
+        return dvrID;
     }
 
-    public String getNO() {
-        return NO;
+    public void setDvrID(int dvrID) {
+        this.dvrID = dvrID;
     }
 
-    public void setNO(String NO) {
-        this.NO = NO;
+    public int getVenueID() {
+        return venueID;
     }
 
-    String NO ;
+    public void setVenueID(int venueID) {
+        this.venueID = venueID;
+    }
+
+    public String getPortNumber() {
+        return portNumber;
+    }
+
+    public void setPortNumber(String portNumber) {
+        this.portNumber = portNumber;
+    }
 }

@@ -2,55 +2,92 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/botton_sheet_teacher"
+    android:background="@drawable/button_style"
     android:orientation="vertical"
-    android:background="@drawable/dialog_bg_teacher">
+  >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/grey_3">
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="View"
         android:gravity="center"
-        android:textSize="50dp"/>
+        android:textSize="40dp"/>
     <LinearLayout
-        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/edit_style"
         android:orientation="horizontal"
         android:id="@+id/txt_Recodings_click"
-        android:layout_margin="20dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/recording_icon"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Recordings"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:textSize="50dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:padding="10dp"
+       android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/grey_3"
+    android:padding="5dp"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_height="25dp"
+        android:layout_gravity="center"
+        app:tint="@color/blue_500"
+        android:src="@drawable/recording_icon" />
+    <TextView
+        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/edit_style"
+        android:text="Recordings"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="30dp"/>
+</LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/txt_Schedule_click"
+        android:background="@drawable/edit_style"
         android:orientation="horizontal"
-        android:layout_margin="20dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/work_timetable_icon"/>
-        <TextView
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:background="@color/grey_3"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:src="@drawable/work_timetable_icon"
+                app:tint="@color/blue_500" />
+
+            <TextView
+            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Schedule"
-            android:textStyle="bold"
-            android:textColor="@color/black"
             android:gravity="center"
-            android:textSize="50dp"/>
+            android:textStyle="bold"
+            android:textSize="30dp"/>
+        </LinearLayout>
+    </LinearLayout>
     </LinearLayout>
 </LinearLayout>

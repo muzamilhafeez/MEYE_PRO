@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="12dp"
+        app:cardCornerRadius="40dp"
+        android:layout_centerHorizontal="true"
+        android:shape="ring"
+        android:thicknessRatio="1.9"
+    android:orientation="vertical"
+        android:id="@+id/Recyclerview"
+        android:layout_margin="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/lineraLayout_Live"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"
+                android:text=""
+                android:id="@+id/camera_name"/>
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="200dp">
+
+                <SurfaceView
+                    android:id="@+id/camera_surface_view"
+                    android:layout_width="fill_parent"
+
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top|center"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/shadow"
+                    android:textColor="@color/grey"
+                    android:text="Test"
+                    android:id="@+id/text_view"/>
+            </FrameLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+
+                android:id="@+id/lineraLayout">
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>

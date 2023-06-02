@@ -3,58 +3,44 @@ package com.example.meyepro.models;
 import android.graphics.Bitmap;
 
 public class MEYE_USER {
-   int ID ;
-   String UID ;
-    String NAME ;
-     String  PASS ;
-    Bitmap IMAGE;
-    String ROLE ;
+    private int id;
+    private String userID;
+    private String name;
+    private String image;
+    private String password;
+    private String role;
 
-    public int getID() {
-        return ID;
+
+    public MEYE_USER(int id, String userID, String name, String image, String password, String role) {
+        this.id = id;
+        this.userID = userID;
+        this.name = name;
+        this.image = image;
+        this.password = password;
+        this.role = role;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public int getId() {
+        return id;
     }
 
-    public String getUID() {
-        return UID;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setUID(String UID) {
-        this.UID = UID;
+    public String getName() {
+        return name;
     }
 
-    public String getNAME() {
-        return NAME;
+    public String getImage() {
+        return image;
     }
 
-    public void setNAME(String NAME) {
-        this.NAME = NAME;
+    public String getPassword() {
+        return password;
     }
 
-    public String getPASS() {
-        return PASS;
-    }
-
-    public void setPASS(String PASS) {
-        this.PASS = PASS;
-    }
-
-    public Bitmap getIMAGE() {
-        return IMAGE;
-    }
-
-    public void setIMAGE(Bitmap IMAGE) {
-        this.IMAGE = IMAGE;
-    }
-
-    public String getROLE() {
-        return ROLE;
-    }
-
-    public void setROLE(String ROLE) {
-        this.ROLE = ROLE;
+    public String getRole() {
+        return role;
     }
 }

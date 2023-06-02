@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:elevation="12dp"
-    app:cardCornerRadius="40dp"
-    android:layout_centerHorizontal="true"
-    android:shape="ring"
-    android:thicknessRatio="1.9"
-    android:layout_margin="10dp">
 
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:rowCount="2">
+<GridLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:columnCount="2"
+    android:layout_marginLeft="9dp"
+    android:layout_marginTop="9dp"
+    android:layout_marginRight="9dp"
+    android:id="@+id/Teacher_cell_click"
+    android:background="@drawable/teacher_recyclerview_background_cell"
+    android:rowCount="2"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/profile_image_teacher"
@@ -50,5 +46,3 @@
 
 
 
-
-</androidx.cardview.widget.CardView>

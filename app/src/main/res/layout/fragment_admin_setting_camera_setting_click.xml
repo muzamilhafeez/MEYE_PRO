@@ -3,12 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.Admin.Setting.RuleSetting.AdminSettingCameraSettingClickFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.Admin.Setting.CameraSetting.AdminSettingCameraSettingClickFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <EditText
+            android:layout_width="match_parent"
+            android:background="@drawable/teacher_recyclerview_background_cell"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Search"
+            android:id="@+id/editText_admin_Setting_search_DVR"
+            android:padding="10dp" />
+        <!-- Recycler view Call -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Recycerview_admin_view_DVR"
+            android:layout_width="match_parent"
+            tools:listitem="@layout/admin_view_dvr_cell"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton_admin_Add_DVR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_baseline_dvr_24"
+        app:backgroundTint="@color/white"
+        app:elevation="6dp"
+        app:fabCustomSize="80dp"/>
 </FrameLayout>

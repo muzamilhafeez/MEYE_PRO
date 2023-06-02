@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SoftUI">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">48dp</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">48dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+        <item name="cornerSizeBottomLeft">48dp</item>
+        <item name="elevationOverlayColor">@color/soft_ui_shadow</item>
+    </style>
+
+</resources>

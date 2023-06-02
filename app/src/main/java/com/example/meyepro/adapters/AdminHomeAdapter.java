@@ -50,7 +50,7 @@ public class AdminHomeAdapter extends RecyclerView.Adapter<AdminHomeAdapter.Admi
     public void onBindViewHolder(@NonNull AdminHomeViewHolder holder, int position) {
         CAMERA obj = VenueList.get(position);
       //  Log.d(VenueList.get(0).getNAME(), VenueList.get(0).getNAME());
-        holder.binding.textViewVenueCamera.setText(obj.getNO()+"");
+        holder.binding.textViewVenueCamera.setText(obj.getPortNumber()+"");
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -61,7 +61,7 @@ public class AdminHomeAdapter extends RecyclerView.Adapter<AdminHomeAdapter.Admi
             @Override
             public void onClick(View view) {
              AdminHomeFragment  AdminHome = (AdminHomeFragment) fragment;
-               AdminHome.recyclerviewAdminHomeCellClick(obj,context);
+               AdminHome.recyclerviewAdminHomeCellClick(context);
             }
         });
 

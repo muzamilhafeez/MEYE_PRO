@@ -9,76 +9,139 @@
     android:shape="ring"
     android:thicknessRatio="1.9"
     android:id="@+id/admin_view_DVR_selected"
+
     android:layout_margin="10dp">
+<!--main name dvr-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_dvr_cell"
         android:orientation="vertical">
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="45dp"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:layout_margin="10dp"
-                android:textSize="30dp"
-                android:textStyle="bold"
-                android:text="Name :"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:text="Name :"
+                android:textSize="22dp"
+                android:textStyle="bold" />
 
-                android:layout_margin="10dp"
-                android:textSize="30dp"
+            <TextView
                 android:id="@+id/textView_view_dvr_name"
-                android:text="DVR 1"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:layout_margin="10dp"
-                android:textSize="30dp"
-                android:textStyle="bold"
-                android:text="Host :"/>
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-
-                android:layout_margin="10dp"
-                android:textSize="30dp"
-                android:id="@+id/textView_view_dvr_host"
-                android:text="Admin"/>
+                android:text="DVR 1"
+                android:textSize="22dp" />
         </LinearLayout>
+<!--detail show-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"
+            android:padding="18dp">
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:layout_margin="10dp"
-                android:textSize="30dp"
-                android:textStyle="bold"
-                android:text="IP"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_weight="4"
+                android:orientation="vertical">
 
-                android:layout_margin="10dp"
-                android:textSize="30dp"
-                android:id="@+id/textView_view_dvr_ip"
-                android:text="192.168.1.1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="IP"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Password"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CHANNEL"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+<!--dvr details-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="8"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_setting_dvr_IP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="192.168.100.19"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/textView_view_dvr_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="123"
+                    android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/textView_view_dvr_channel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="16"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/image_view_view_dvr_edit"
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="3dp"
+                        android:layout_weight="3"
+                        android:src="@drawable/ic_baseline_edit" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/image_view_view_dvr_delete"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_baseline_delete" />
+            </LinearLayout>
+
         </LinearLayout>
+
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

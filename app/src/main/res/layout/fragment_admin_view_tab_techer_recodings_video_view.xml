@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.Admin.view.Teacher.Teacher.video.AdminViewTabTecherRecodingsVideoViewFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+<!--        <SurfaceView-->
+<!--            android:id="@+id/surfaceView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent" />-->
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/video_player_view"
+            android:layout_width="match_parent"
+            android:layout_height="350dp" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/teacher_recyclerview_background_cell"
+            android:layout_margin="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_gravity="center"
+                    app:tint="@color/blue_500"
+                    android:src="@drawable/video_details_icon"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Teacher Name"
+                            android:id="@+id/textView_teacher_Recordings_details_Teacher_name"
+                            android:textAppearance="?attr/textAppearanceListItem" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-3dp"
+                            android:text="Course Name"
+                            android:id="@+id/textView_teacher_Recordings_details_Course_name"
+                            android:textAppearance="?attr/textAppearanceListItem" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView_teacher_Recordings_details_section"
+                            android:text="section"
+                            android:layout_marginTop="-3dp"
+                            android:textAppearance="?attr/textAppearanceListItem"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-3dp"
+                            android:text="Date"
+                            android:id="@+id/textView_teacher_Recordings_details_Date"
+                            android:textAppearance="?attr/textAppearanceListItem" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-3dp"
+                            android:text="Venue"
+                            android:id="@+id/textView_teacher_Recordings_details_Venue"
+                            android:textAppearance="?attr/textAppearanceListItem" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Start"
+                            android:id="@+id/textView_teacher_Recordings_details_Date_start"
+                            android:textAppearance="?attr/textAppearanceListItem" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-3dp"
+                            android:text="End"
+                            android:id="@+id/textView_teacher_Recordings_details_Date_end"
+                            android:textAppearance="?attr/textAppearanceListItem" />
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="-3dp"-->
+<!--                            android:id="@+id/textView_teacher_Recordings_details_filename_recording"-->
+<!--                            android:text="filename"-->
+<!--                            android:textAppearance="?attr/textAppearanceListItem"/>-->
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+<!--    <VideoView-->
+<!--        android:id="@+id/video_view_teacher"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"/>-->
+    </LinearLayout>
+</FrameLayout>

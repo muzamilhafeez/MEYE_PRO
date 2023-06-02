@@ -1,28 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".fragments.Admin.Hone.AdminHomeCameraClickDetailFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:orientation="vertical">
-        <VideoView
+
+        <org.videolan.libvlc.util.VLCVideoLayout
+            android:id="@+id/videoLayoutLive"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:id="@+id/VideoView_cametra"
-            android:layout_margin="30dp"
-            android:background="@drawable/edit_style"/>
-        <TextView
+            android:layout_height="200dp" />
+
+
+
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/camera_icon"
+            app:tint="@color/blue_500"/>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Detail"
-            android:layout_margin="20dp"
-            android:id="@+id/txt_view_camera_detail"/>
+            android:layout_marginLeft="30dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+
+
+<!--                details-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Discipline"
+                        android:textStyle="bold"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BSCS-7B"
+                        android:layout_marginLeft="10dp"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                </LinearLayout>
+<!--                end details-->
+<!--                details&ndash;&gt;-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Instructor "
+                        android:textStyle="bold"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mr Umer"
+                        android:layout_marginLeft="10dp"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                </LinearLayout>
+                <!--                end details-->
+                details-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Course"
+                        android:textStyle="bold"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PP"
+                        android:layout_marginLeft="10dp"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                </LinearLayout>
+                <!--                end details-->
+                details-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Time "
+                        android:textStyle="bold"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8:30-10:00"
+                        android:layout_marginLeft="10dp"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                </LinearLayout>
+                <!--                end details-->
+                details-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Venue"
+                        android:textStyle="bold"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lab 5"
+                        android:layout_marginLeft="10dp"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                </LinearLayout>
+                <!--                end details-->
+
+                details-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Channel"
+                        android:textStyle="bold"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:layout_marginLeft="10dp"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                </LinearLayout>
+                <!--                end details-->
+            </LinearLayout>
+
+
+        </LinearLayout>
     </LinearLayout>
+    <!--    <VideoView-->
+    <!--        android:id="@+id/video_view_teacher"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_centerInParent="true"/>-->
 
 
-</FrameLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".DirectorDashBoard.Home.DirectorRecyclerViewCalingHomeFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@drawable/teacher_recyclerview_background_cell"
+            android:hint="Search"
+            android:id="@+id/editText_admin_Home_search"
+            android:padding="10dp" />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_gravity="center"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/search_categories_icon"
+            android:padding="25dp"
+            app:tint="@color/blue_500"
+            android:id="@+id/imageview_admin_Home_searchIcon"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/recyclerview_director_home_cell"
+        android:id="@+id/Recycerview_Director_Home"/>
+    <!-- TODO: Update blank fragment layout -->
+
+
+</LinearLayout>

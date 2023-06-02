@@ -2,6 +2,7 @@ package com.example.meyepro.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -9,23 +10,27 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meyepro.databinding.AdminViewVenueRecordingsCellBinding;
+import com.example.meyepro.fragments.Admin.view.TabView.DVR.AdminViewTabDVRFragment;
+import com.example.meyepro.fragments.Admin.view.Teacher.Teacher.AdminViewTabTecherRecodingsFragment;
 import com.example.meyepro.models.RECORDINGS;
 import com.example.meyepro.models.Venue;
+import com.example.meyepro.models.recordings_details_by_teachername;
 
 import java.util.ArrayList;
 
 public class AdminViewVenueRecordingsAdapter extends RecyclerView.Adapter<AdminViewVenueRecordingsAdapter.AdminViewVenueRecordingsViewHolder>{
 
     private  Fragment fragment;
-    private ArrayList<RECORDINGS> TeacherList;
+    private ArrayList<recordings_details_by_teachername> RecordingList;
     private Context context;
+//    private ArrayList<RECORDINGS> RecordingList;
 
-    public AdminViewVenueRecordingsAdapter(ArrayList<RECORDINGS> TeacherList, Context context) {
-        this.TeacherList = TeacherList;
+    public AdminViewVenueRecordingsAdapter(ArrayList<recordings_details_by_teachername> RecordingList, Context context) {
+        this.RecordingList = RecordingList;
         this.context = context;
     }
-    public AdminViewVenueRecordingsAdapter (ArrayList<RECORDINGS> TeacherList, Context context, Fragment fragment ) {
-        this.TeacherList = TeacherList;
+    public AdminViewVenueRecordingsAdapter (ArrayList<recordings_details_by_teachername> RecordingList, Context context, Fragment fragment ) {
+        this.RecordingList= RecordingList;
         this.context = context;
         this.fragment=fragment;
     }
@@ -44,14 +49,25 @@ public class AdminViewVenueRecordingsAdapter extends RecyclerView.Adapter<AdminV
 
     @Override
     public void onBindViewHolder(@NonNull AdminViewVenueRecordingsViewHolder holder, int position) {
-        RECORDINGS obj = TeacherList.get(position);
-        holder.binding.textViewTeacherRecordingsDetails.setText(obj.getFILENAME()+"");
+        recordings_details_by_teachername obj = RecordingList.get(position);
+        holder.binding.textViewTeacherRecordingsDetailsDate.setText(obj.getDate()+"");
+        holder.binding.textViewTeacherRecordingsDetailsCourseName.setText("Course Name "+obj.getCourseName()+"");
+        holder.binding.textViewTeacherRecordingsDetailsSection.setText("Section "+obj.getDiscipline()+"");
+        holder.binding.textViewTeacherRecordingsDetailsStartRecording.setText(obj.getFileName().split(",")[2]+"");
+
+        holder.binding.textViewTeacherRecordingsDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AdminViewTabTecherRecodingsFragment AdminViewTabDVR = (AdminViewTabTecherRecodingsFragment) fragment;
+                AdminViewTabDVR.recyclerviewAdminViewTabTecherRecodingsCellClick(obj,context);
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return TeacherList.size();
+        return RecordingList.size();
     }
 
     class AdminViewVenueRecordingsViewHolder extends RecyclerView.ViewHolder {

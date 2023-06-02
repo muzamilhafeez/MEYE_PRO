@@ -8,13 +8,12 @@
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:layout_margin="20dp">
+        android:layout_margin="10dp">
 
 
     <LinearLayout
@@ -29,17 +28,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:layout_margin="10dp"
-                android:textSize="30dp"
+                android:layout_margin="5dp"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 android:text="Name :"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-
-                android:layout_margin="10dp"
-                android:textSize="30dp"
+                android:layout_margin="5dp"
+                android:textSize="20dp"
                 android:id="@+id/textView_view_dvr_name"
                 android:text="DVR 1"/>
         </LinearLayout>
@@ -51,17 +49,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:layout_margin="10dp"
-                android:textSize="30dp"
+                android:layout_margin="5dp"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 android:text="Host :"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-
-                android:layout_margin="10dp"
-                android:textSize="30dp"
+                android:layout_margin="5dp"
+                android:textSize="20dp"
                 android:id="@+id/textView_view_dvr_host"
                 android:text="Admin"/>
         </LinearLayout>
@@ -73,17 +70,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:layout_margin="10dp"
-                android:textSize="30dp"
+                android:layout_margin="5dp"
+                android:textSize="20dp"
                 android:textStyle="bold"
-                android:text="IP"/>
+                android:text="IP:"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-
-                android:layout_margin="10dp"
-                android:textSize="30dp"
+                android:layout_margin="5dp"
+                android:textSize="20dp"
                 android:id="@+id/textView_view_dvr_ip"
                 android:text="192.168.1.1"/>
         </LinearLayout>
@@ -94,18 +90,18 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="10dp"
-                android:textSize="30dp"
+                android:layout_weight="2"
+                android:layout_margin="5dp"
+                android:textSize="20dp"
                 android:textStyle="bold"
-                android:text="Max Channel"/>
+                android:text="Max Channel:"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:textSize="30dp"
+                android:layout_margin="5dp"
+                android:textSize="20dp"
                 android:id="@+id/textView_view_dvr_channel"
                 android:text="5"/>
         </LinearLayout>
@@ -114,21 +110,21 @@
     </androidx.cardview.widget.CardView>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
         <EditText
             android:layout_width="match_parent"
+            android:background="@drawable/teacher_recyclerview_background_cell"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@drawable/edit_style"
+            android:layout_margin="8dp"
             android:hint="Search"
-            android:id="@+id/editText_admin_view_search"
+            android:id="@+id/editText_admin_view_search_dvr"
             android:padding="10dp" />
 
-        <ListView
-            android:id="@+id/list_view_camera"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Recycerview_admin_View_DVR_Channel"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 

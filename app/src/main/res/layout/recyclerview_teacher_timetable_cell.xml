@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:background="@drawable/teacher_recyclerview_background_cell"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/lineraLayout_teacher_change_bg"
+        android:background="@color/light_blue_A200"
+        android:layout_height="wrap_content">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:id="@+id/txt_view_Teacher_timetable_status"
+        android:text=""/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:layout_marginRight="@dimen/spacing_large"
+        android:layout_marginLeft="@dimen/spacing_large"
+        android:layout_height="@dimen/spacing_medium"
+        android:background="@color/grey_500"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/spacing_large"
+    android:layout_marginTop="@dimen/spacing_medium"
+    android:layout_marginRight="@dimen/spacing_large"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1.1"
+        android:layout_height="wrap_content"
+        android:text="Venue: "/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="7"
+        android:id="@+id/txt_view_Teacher_timetable_venue"
+        android:layout_height="wrap_content"
+        android:text="Lab5"/>
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:layout_marginRight="@dimen/spacing_large"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Course: "/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="6"
+            android:id="@+id/txt_view_Teacher_timetable_course"
+            android:layout_height="wrap_content"
+            android:text="Lab5"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:layout_marginRight="@dimen/spacing_large"
+
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1.2"
+            android:layout_height="wrap_content"
+            android:text="Discipline: "/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:id="@+id/txt_view_Teacher_timetable_discipline"
+            android:layout_height="wrap_content"
+            android:text="Lab5"/>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_marginRight="@dimen/spacing_large"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:text="Day: "/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:id="@+id/txt_view_Teacher_timetable_day"
+                android:layout_height="wrap_content"
+                android:text="Lab5"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_marginRight="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_large"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:layout_height="wrap_content"
+                android:text="Start Time: "/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:id="@+id/txt_view_Teacher_timetable_StatTime"
+                android:layout_height="wrap_content"
+                android:text="Lab5"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

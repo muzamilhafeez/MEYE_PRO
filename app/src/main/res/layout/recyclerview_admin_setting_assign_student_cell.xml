@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linearLayout_assign_course_selected_student"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/teacher_recyclerview_background_cell"
+        android:layout_margin="3dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_image_student"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="5dp"
+            android:adjustViewBounds="true"
+            android:elevation="5dp"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:scaleType="fitXY"
+            android:background="@color/white"
+            android:src="@drawable/image_icon"
+            app:shapeAppearanceOverlay="@style/imageViewRounded"
+            app:strokeColor="@android:color/black" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtView_Recyclerview_assign_Student_name"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="5"
+            android:text="Student Name"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:src="@drawable/yes_icon"
+            android:id="@+id/icon_Recyclerview_assign_Student_selected"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</LinearLayout>

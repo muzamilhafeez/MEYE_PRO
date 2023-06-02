@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".TeacherDashBoard.Home.TeacherDashBoardDetailFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/lineraLayout_teacher_nav"
+      android:orientation="vertical">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+      <androidx.cardview.widget.CardView
+          android:id="@+id/search_bar"
+          android:layout_weight="7"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/spacing_mlarge"
+          android:clipToPadding="false"
+          app:cardBackgroundColor="@android:color/white"
+          app:cardCornerRadius="25dp"
+          app:cardElevation="1dp">
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+              <View
+                  android:layout_width="@dimen/spacing_medium"
+                  android:layout_height="0dp" />
+
+              <ImageView
+                  android:id="@+id/bt_notification"
+                  android:layout_width="?attr/actionBarSize"
+                  android:layout_height="?attr/actionBarSize"
+                  android:background="@android:color/transparent"
+                  android:clickable="true"
+                  app:srcCompat="@drawable/ic_baseline_search"
+                  app:tint="@color/grey_60" />
+
+              <EditText
+                  android:id="@+id/et_search"
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:background="@android:color/transparent"
+                  android:hint="Search or type URL"
+                  android:imeOptions="actionSearch"
+                  android:maxLines="1"
+                  android:singleLine="true">
+              </EditText>
+
+              <View
+                  android:layout_width="@dimen/spacing_medium"
+                  android:layout_height="0dp" />
+
+
+          </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
+    <ImageView
+        android:layout_weight="1"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="center|right"
+        android:src="@drawable/notification_icon" />
+
+
+</LinearLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Select Day"/>
+          <Spinner
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/spinner_Days"/>
+      </LinearLayout>
+
+  </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_below="@id/lineraLayout_teacher_nav"
+        android:layout_height="match_parent"
+        android:id="@+id/Recycerview_Teacher_home"/>
+<!--      <TextView-->
+<!--          android:layout_width="match_parent"-->
+<!--          android:layout_height="wrap_content"-->
+<!--          android:text="Today No Coming Session"-->
+<!--          android:textSize="16sp"-->
+<!--          android:id="@+id/coming_session_no"-->
+<!--          android:gravity="center" />-->
+<!--<LinearLayout-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:id="@+id/Slider_coming_activity_show_or_hide"-->
+<!--    android:orientation="vertical">-->
+
+
+<!--      <TextView-->
+<!--          android:layout_width="wrap_content"-->
+<!--          android:layout_height="wrap_content"-->
+<!--          android:textSize="18sp"-->
+<!--          android:paddingLeft="25dp"-->
+<!--          android:layout_weight="1"-->
+<!--          android:text="Coming Class"-->
+<!--          />-->
+<!--      <androidx.core.widget.NestedScrollView-->
+<!--          android:id="@+id/nested_scroll_view"-->
+<!--          android:layout_width="match_parent"-->
+<!--          android:layout_height="210dp"-->
+<!--          android:clipToPadding="false"-->
+<!--          android:scrollbars="none"-->
+<!--          android:scrollingCache="true"-->
+<!--          app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+
+<!--          <LinearLayout-->
+<!--              android:layout_width="match_parent"-->
+<!--              android:layout_height="wrap_content"-->
+<!--              android:orientation="vertical">-->
+<!--              <androidx.cardview.widget.CardView-->
+<!--                  android:layout_width="match_parent"-->
+<!--                  android:layout_height="wrap_content"-->
+<!--                  app:cardCornerRadius="0dp"-->
+<!--                  app:cardElevation="2dp">-->
+
+<!--                  <RelativeLayout-->
+<!--                      android:layout_width="match_parent"-->
+<!--                      android:layout_height="wrap_content">-->
+
+<!--                      <androidx.viewpager2.widget.ViewPager2-->
+<!--                          android:id="@+id/slider_pager_teacher_schedule_coming"-->
+<!--                          android:layout_width="match_parent"-->
+<!--                          android:layout_height="220dp"-->
+<!--                          android:layout_alignParentStart="true"-->
+<!--                          android:layout_alignParentLeft="true"-->
+<!--                          android:layout_alignParentTop="true"-->
+<!--                          android:layout_marginStart="0dp"-->
+<!--                          android:layout_marginLeft="0dp"-->
+<!--                          android:layout_marginTop="3dp"-->
+<!--                          android:background="@color/grey_20" />-->
+
+
+<!--                  </RelativeLayout>-->
+
+<!--              </androidx.cardview.widget.CardView>-->
+<!--          </LinearLayout>-->
+
+<!--      </androidx.core.widget.NestedScrollView>-->
+<!--</LinearLayout>-->
+
+<!--      <TextView-->
+<!--          android:layout_width="wrap_content"-->
+<!--          android:layout_height="wrap_content"-->
+<!--          android:layout_weight="1"-->
+<!--          android:paddingLeft="25dp"-->
+<!--          android:text="Class Held"-->
+<!--          android:textSize="18sp" />-->
+
+<!--      <androidx.core.widget.NestedScrollView-->
+<!--          android:layout_width="match_parent"-->
+<!--          android:layout_height="210dp"-->
+<!--          android:clipToPadding="false"-->
+<!--          android:scrollbars="none"-->
+<!--          android:scrollingCache="true"-->
+<!--          app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+
+<!--          <LinearLayout-->
+<!--              android:layout_width="match_parent"-->
+<!--              android:layout_height="wrap_content"-->
+<!--              android:orientation="vertical">-->
+<!--              <androidx.cardview.widget.CardView-->
+<!--                  android:layout_width="match_parent"-->
+<!--                  android:layout_height="wrap_content"-->
+<!--                  app:cardCornerRadius="0dp"-->
+<!--                  app:cardElevation="2dp">-->
+
+<!--                  <RelativeLayout-->
+<!--                      android:layout_width="match_parent"-->
+<!--                      android:layout_height="wrap_content">-->
+
+<!--                      <androidx.viewpager2.widget.ViewPager2-->
+<!--                          android:id="@+id/slider_pager_teacher_schedule_Past"-->
+<!--                          android:layout_width="match_parent"-->
+<!--                          android:layout_height="220dp"-->
+<!--                          android:layout_alignParentStart="true"-->
+<!--                          android:layout_alignParentLeft="true"-->
+<!--                          android:layout_alignParentTop="true"-->
+<!--                          android:layout_marginStart="0dp"-->
+<!--                          android:layout_marginLeft="0dp"-->
+<!--                          android:layout_marginTop="3dp"-->
+<!--                          android:background="@color/grey_20" />-->
+<!--                  </RelativeLayout>-->
+
+<!--              </androidx.cardview.widget.CardView>-->
+<!--          </LinearLayout>-->
+
+<!--      </androidx.core.widget.NestedScrollView>-->
+<!--  </LinearLayout>-->
+
+<!--    <com.leinardi.android.speeddial.SpeedDialView-->
+<!--        android:id="@+id/speedDial"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom|end"-->
+<!--        app:sdMainFabClosedSrc="@drawable/sl" />-->
+
+</RelativeLayout>

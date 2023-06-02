@@ -1,59 +1,68 @@
 package com.example.meyepro.models;
 
 public class DVR {
-   int ID ;
-   String IP ;
-  String  NAME ;
-    String  CHANNEL ;
-    String HOST ;
-    String  PASSWORD ;
+    private int id;
+    private String ip;
+    private String name;
+    private String channel;
+    private String host;
+    private String password;
 
-    public int getID() {
-        return ID;
+    public DVR(int id, String ip, String name, String channel, String host, String password) {
+        this.id = id;
+        this.ip = ip;
+        this.name = name;
+        this.channel = channel;
+        this.host = host;
+        this.password = password;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public int getId() {
+        return id;
     }
 
-    public String getIP() {
-        return IP;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setIP(String IP) {
-        this.IP = IP;
+    public String getIp() {
+        return ip;
     }
 
-    public String getNAME() {
-        return NAME;
+    public void setIp(String ip) {
+        this.ip = ip;
     }
 
-    public void setNAME(String NAME) {
-        this.NAME = NAME;
+    public String getName() {
+        return name;
     }
 
-    public String getCHANNEL() {
-        return CHANNEL;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setCHANNEL(String CHANNEL) {
-        this.CHANNEL = CHANNEL;
+    public String getChannel() {
+        return channel;
     }
 
-    public String getHOST() {
-        return HOST;
+    public void setChannel(String channel) {
+        this.channel = channel;
     }
 
-    public void setHOST(String HOST) {
-        this.HOST = HOST;
+    public String getHost() {
+        return host;
     }
 
-    public String getPASSWORD() {
-        return PASSWORD;
+    public void setHost(String host) {
+        this.host = host;
     }
 
-    public void setPASSWORD(String PASSWORD) {
-        this.PASSWORD = PASSWORD;
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 

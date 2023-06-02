@@ -3,20 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.Admin.view.TabView.DVR.AdminViewTabDVRFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
         <EditText
             android:layout_width="match_parent"
+            android:background="@drawable/teacher_recyclerview_background_cell"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@drawable/edit_style"
+            android:layout_margin="8dp"
             android:hint="Search"
-            android:id="@+id/editText_admin_view_DVR_search"
+            android:id="@+id/editText_admin_view_search_dvr"
             android:padding="10dp" />
         <!-- Recycler view Call -->
         <androidx.recyclerview.widget.RecyclerView
@@ -24,5 +25,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
+
+<!--    <com.airbnb.lottie.LottieAnimationView-->
+<!--        android:id="@+id/animation_view"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="80dp"-->
+<!--        app:lottie_autoPlay="true"-->
+<!--        app:lottie_loop="true"-->
+<!--        android:background="@drawable/edit_style"-->
+<!--        android:layout_margin="16dp"-->
+<!--        android:layout_gravity="bottom|end"-->
+<!--        app:lottie_rawRes="@raw/add_dvr" />-->
+
 
 </FrameLayout>

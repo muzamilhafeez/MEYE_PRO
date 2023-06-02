@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Admin.Schedule.PreSchedule.AdminSchedulePreScheduleSelectRangeActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/blue_500"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:contentInsetStartWithNavigation="0dp"
+                app:navigationIcon="@drawable/ic_baseline_keyboard_backspace_24"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="3">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profile_image_teacher"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_row="0"
+
+                android:layout_column="0"
+                android:layout_margin="5dp"
+                android:adjustViewBounds="true"
+                android:elevation="5dp"
+                android:maxWidth="50dp"
+                android:maxHeight="50dp"
+                android:scaleType="fitXY"
+                android:background="@color/white"
+                android:src="@drawable/image_icon"
+                app:shapeAppearanceOverlay="@style/imageViewRounded"
+                app:strokeColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView_Teacher_Name"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Teacher"
+                android:layout_gravity="right|center"
+                android:elevation="15dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                />
+            <Spinner
+                android:layout_gravity="right|center"
+                android:layout_width="wrap_content"
+                android:id="@+id/spinner_Teacher_discipline"
+                android:layout_height="wrap_content"
+                />
+
+        </GridLayout>
+
+        <!--<TextView-->
+        <!--    android:layout_width="match_parent"-->
+        <!--    android:layout_height="wrap_content"-->
+        <!-- -->
+        <!--    android:textSize="20dp"-->
+        <!--    android:text="Month"/>-->
+
+        <LinearLayout
+            android:id="@+id/date_range_layout"
+            android:layout_width="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/date_range_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select date range"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <com.squareup.timessquare.CalendarPickerView
+                android:id="@+id/calendar_view"
+                android:layout_width="match_parent"
+                android:layout_height="360dp" />
+
+
+        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:gravity="center"
+            android:id="@+id/btn_save_ReSchedule"
+            android:text="Next"
+            android:background="@drawable/edit_style" />
+    </LinearLayout>
+</RelativeLayout>
