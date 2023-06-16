@@ -45,6 +45,7 @@ import com.example.meyepro.DirectorDashBoard.Model.ScheduleDetailsAndCHR;
 import com.example.meyepro.R;
 import com.example.meyepro.api.Api;
 import com.example.meyepro.databinding.FragmentDirectorDataTableBinding;
+import com.example.meyepro.fragments.Admin.AdminSettingFragment;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -79,6 +80,9 @@ FragmentDirectorDataTableBinding binding;
         // Inflate the layout for this fragment
         binding= FragmentDirectorDataTableBinding.inflate(getLayoutInflater());
         //code start
+        if(AdminSettingFragment.ReportView==null){
+                binding.btnGeneratePDF.setVisibility(View.INVISIBLE);
+        }
 
         binding.btnGeneratePDF.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +98,8 @@ FragmentDirectorDataTableBinding binding;
                 binding.btnGeneratePDF.setVisibility(View.INVISIBLE);
 //        PdfGenerator pdfGenerator= new PdfGenerator();
 //        pdfGenerator.generatePdf(TeacherSelectTimTableCHRActivity.this, binding.getRoot(), "TeacherCHR.pdf");
+
+
                 generatePDF();
 
 //        // Generate the PDF
@@ -336,8 +342,8 @@ FragmentDirectorDataTableBinding binding;
         x += columnWidth;
         canvas.drawText("Strand", x, 30*index, paintTxt);
         x += columnWidth;
-        canvas.drawText("Mobile", x, 30*index, paintTxt);
-        x += columnWidth;
+//        canvas.drawText("Mobile", x, 30*index, paintTxt);
+//        x += columnWidth;
         canvas.drawText("Status", x, 30*index, paintTxt);
         float startX = 0; // Starting X coordinate for the lines
         float startY = 40*index; // Starting Y coordinate for the lines
@@ -362,8 +368,8 @@ FragmentDirectorDataTableBinding binding;
             x += columnWidth;
             drawTextWithWrapping(canvas,""+scheduleDetailsAndCHR.getStand(), (20+x), 30*index, columnWidth,paintTxt);
             x += columnWidth;
-            drawTextWithWrapping(canvas,""+scheduleDetailsAndCHR.getMobile(), (20+x), 30*index, columnWidth,paintTxt);
-            x += columnWidth;
+//            drawTextWithWrapping(canvas,""+scheduleDetailsAndCHR.getMobile(), (20+x), 30*index, columnWidth,paintTxt);
+//            x += columnWidth;
             drawTextWithWrapping(canvas,""+scheduleDetailsAndCHR.getStatus(), x, 30*index, columnWidth,paintTxt);
         }
 
@@ -388,7 +394,6 @@ FragmentDirectorDataTableBinding binding;
 //
 //        }
         File file = null;
-        ContextWrapper cw = new ContextWrapper(getActivity().getApplicationContext());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             if (Environment.isExternalStorageManager()) {
                 // The app has been granted the MANAGE_EXTERNAL_STORAGE permission
@@ -424,7 +429,9 @@ FragmentDirectorDataTableBinding binding;
         pdfDocument.close();
 
         // Generate a content URI using FileProvider
-        Uri contentUri = FileProvider.getUriForFile(getActivity(), "com.example.meyepro.fileprovider", file);
+//        Uri contentUri = FileProvider.getUriForFile(getActivity(), "com.example.meyepro.fileprovider", file);
+        // Generate a content URI using FileProvider
+        Uri contentUri = FileProvider.getUriForFile(getActivity(), getActivity().getPackageName() + ".fileprovider", file);
 //        Toast.makeText(cw, ""+getContext().getPackageName() + ".fileprovider", Toast.LENGTH_SHORT).show();
         // Create an 'Intent' to view the PDF
         Intent intent = new Intent(Intent.ACTION_VIEW);

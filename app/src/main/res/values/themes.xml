@@ -13,14 +13,26 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
     <style name="imageViewRounded" parent="ShapeAppearance.Material3.MediumComponent">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">30%</item>
+        <item name="cornerSize">20%</item>
     </style>
+
     <style name="BottomSheetStyle" parent="Theme.Design.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/Model</item>
     </style>
+
     <style name="Model" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/dialog_bg_teacher</item>
     </style>
+
+    <style name="Theme.MEyePro.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MEyePro.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MEyePro.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

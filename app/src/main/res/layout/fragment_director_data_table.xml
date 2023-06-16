@@ -103,9 +103,9 @@
 
                     <TextView
                         android:id="@+id/txt_view_director_sit"
-                        android:layout_width="30dp"
+                        android:layout_width="170dp"
                         android:layout_height="wrap_content"
-
+                        android:gravity="center"
                         android:layout_gravity="center"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="6dp"
@@ -114,23 +114,24 @@
 
                     <TextView
                         android:id="@+id/txt_view_director_strand"
-                        android:layout_width="70dp"
+                        android:layout_width="170dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="6dp"
                         android:text="Strand"
+                        android:gravity="center"
                         android:textSize="@dimen/spacing_smlarge" />
 
-                    <TextView
-                        android:id="@+id/txt_view_director_mobile"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="6dp"
-                        android:text="Mobile"
-                        android:textSize="@dimen/spacing_smlarge" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/txt_view_director_mobile"-->
+<!--                        android:layout_width="70dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginLeft="8dp"-->
+<!--                        android:layout_marginTop="6dp"-->
+<!--                        android:text="Mobile"-->
+<!--                        android:textSize="@dimen/spacing_smlarge" />-->
 
                     <TextView
                         android:id="@+id/txt_view_director_status"

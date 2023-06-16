@@ -9,5 +9,7 @@
         <item name="cornerSizeBottomLeft">48dp</item>
         <item name="elevationOverlayColor">@color/soft_ui_shadow</item>
     </style>
-
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
+        <item name="cornerSize">30%</item>
+    </style>
 </resources>

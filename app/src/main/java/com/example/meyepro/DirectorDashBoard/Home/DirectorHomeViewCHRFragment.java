@@ -33,6 +33,7 @@ import com.example.meyepro.DirectorDashBoard.Model.ScheduleDetailsAndCHR;
 import com.example.meyepro.R;
 import com.example.meyepro.api.Api;
 import com.example.meyepro.databinding.FragmentDirectorHomeViewCHRBinding;
+import com.example.meyepro.fragments.Admin.AdminSettingFragment;
 import com.example.meyepro.fragments.Admin.AdminViewFragment;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
@@ -60,6 +61,9 @@ public class DirectorHomeViewCHRFragment extends Fragment {
         // Inflate the layout for this fragment
         binding=FragmentDirectorHomeViewCHRBinding.inflate(getLayoutInflater());
         //code start
+        if(AdminSettingFragment.ReportView==null){
+            binding.btnGeneratePDF.setVisibility(View.INVISIBLE);
+        }
 //        Toast.makeText(getContext(), ""+getArguments().getString("IntentData"), Toast.LENGTH_SHORT).show();
         ScheduleDetailsAndCHR scheduleDetailsAndCHR= new Gson().fromJson(getArguments().getString("IntentData"),ScheduleDetailsAndCHR.class);
         binding.txtCourse.setText(scheduleDetailsAndCHR.getCourseName());
@@ -153,22 +157,24 @@ public class DirectorHomeViewCHRFragment extends Fragment {
 
 // Get the drawable from the ImageView
         BitmapDrawable bmpDrawable = (BitmapDrawable) binding.profileImageTeacher.getDrawable();
-        Bitmap bmpImage = bmpDrawable.getBitmap();
+       if(bmpDrawable!=null) {
+           Bitmap bmpImage = bmpDrawable.getBitmap();
 
-        // Calculate the desired resolution based on the zoom level
-        float zoomLevel = 2.0f; // Adjust the zoom level as needed
-        int desiredWidth = (int) (50* zoomLevel);
-        int desiredHeight = (int) (50 * zoomLevel);
+
+           // Calculate the desired resolution based on the zoom level
+           float zoomLevel = 2.0f; // Adjust the zoom level as needed
+           int desiredWidth = (int) (50 * zoomLevel);
+           int desiredHeight = (int) (50 * zoomLevel);
 
 // Create a new bitmap with the desired resolution
-        Bitmap highResBitmap = Bitmap.createScaledBitmap(bmpImage, desiredWidth, desiredHeight, true);
-        paint.setAntiAlias(true);
-        paint.setFilterBitmap(true);
-        // Calculate the x coordinate to align the image to the right
-        int x = pagewidth-140;
+           Bitmap highResBitmap = Bitmap.createScaledBitmap(bmpImage, desiredWidth, desiredHeight, true);
+           paint.setAntiAlias(true);
+           paint.setFilterBitmap(true);
+           // Calculate the x coordinate to align the image to the right
+           int x = pagewidth - 140;
 // Draw the high-resolution bitmap onto the PDF canvas
-        canvas.drawBitmap(highResBitmap, x, 20, paint);
-
+           canvas.drawBitmap(highResBitmap, x, 20, paint);
+       }
 
 
         // below line is used for adding typeface for

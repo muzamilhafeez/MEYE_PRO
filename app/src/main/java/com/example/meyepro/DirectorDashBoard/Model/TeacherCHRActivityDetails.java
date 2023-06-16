@@ -3,15 +3,31 @@ package com.example.meyepro.DirectorDashBoard.Model;
 public class TeacherCHRActivityDetails {
     String timein;
     String timeout;
-    int sit;
-    int stand;
-    int mobile;
-    public TeacherCHRActivityDetails(String timein, String timeout, int sit, int stand, int mobile) {
+    String sit;
+    String stand;
+//    int mobile;
+
+    public TeacherCHRActivityDetails(String timein, String timeout, String sit, String stand) {
         this.timein = timein;
         this.timeout = timeout;
         this.sit = sit;
         this.stand = stand;
-        this.mobile = mobile;
+    }
+
+    public String getSit() {
+        return sit;
+    }
+
+    public void setSit(String sit) {
+        this.sit = sit;
+    }
+
+    public String getStand() {
+        return stand;
+    }
+
+    public void setStand(String stand) {
+        this.stand = stand;
     }
 
     public String getTimein() {
@@ -30,27 +46,13 @@ public class TeacherCHRActivityDetails {
         this.timeout = timeout;
     }
 
-    public int getSit() {
-        return sit;
-    }
 
-    public void setSit(int sit) {
-        this.sit = sit;
-    }
 
-    public int getStand() {
-        return stand;
-    }
-
-    public void setStand(int stand) {
-        this.stand = stand;
-    }
-
-    public int getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(int mobile) {
-        this.mobile = mobile;
-    }
+//    public int getMobile() {
+//        return mobile;
+//    }
+//
+//    public void setMobile(int mobile) {
+//        this.mobile = mobile;
+//    }
 }

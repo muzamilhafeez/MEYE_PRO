@@ -18,6 +18,7 @@ import com.example.meyepro.api.RetrofitClient;
 import com.example.meyepro.databinding.ActivityAdminSchedulePreScheduleFreeSlotShowBinding;
 import com.example.meyepro.fragments.Admin.Schedule.Reschedule.AdminScheduleReScheduleFreeSlotActivity;
 import com.example.meyepro.models.MEYE_USER;
+import com.example.meyepro.models.PreSchedule;
 import com.example.meyepro.models.Reschedule;
 import com.example.meyepro.models.TimeTable;
 import com.google.gson.Gson;
@@ -78,7 +79,7 @@ ActivityAdminSchedulePreScheduleFreeSlotShowBinding binding;
                     //  Binding.RecycerviewAdminViewTeacher.setHasFixedSize(true);
                     binding.RecycerviewAdminReschedule.
                             setAdapter(adapter);
-//      binding.RecycerviewAdminReschedule.getAdapter().notifyDataSetChanged();
+//              binding.RecycerviewAdminReschedule.getAdapter().notifyDataSetChanged();
 
                     binding.progressBar.setVisibility(View.GONE);
                     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
@@ -184,13 +185,13 @@ ActivityAdminSchedulePreScheduleFreeSlotShowBinding binding;
 
     }
     String selectVenue="";
-    Reschedule Preschedule= new Reschedule();
+    PreSchedule Preschedule= new PreSchedule();
     public void recyclerviewSelectVenueDrowpdown(String venue, String startTime, String EndTime, String Day , Context context) {
         binding.txtViewSelectedVenue.setText("Selected Venue "+venue);
         Preschedule.setDate(getDateFromDayOfWeek(Day));
         Preschedule.setDay(Day);
-        Preschedule.setEndtime(EndTime);
-        Preschedule.setStarttime(startTime);
+        Preschedule.setEndTime(EndTime);
+        Preschedule.setStartTime(startTime);
         Preschedule.setVenueName(venue);
         Preschedule.setId(0);
 //        reschedule.setTeacherSlotId(Integer.parseInt(ID));

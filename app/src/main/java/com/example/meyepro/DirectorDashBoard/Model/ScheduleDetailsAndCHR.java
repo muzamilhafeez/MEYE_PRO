@@ -10,15 +10,24 @@ public class ScheduleDetailsAndCHR {
     private String discipline;
     private String startTime;
     private String endTime;
-    private int totalTimeIn;
-    private int totalTimeOut;
+    private String totalTimeIn;
+    private String totalTimeOut;
     private String status;
     private String date;
     private String teacherName;
     private String image;
     private String sit;
     private String stand;
-    private String mobile;
+    private String venue;
+
+    public String getVenue() {
+        return venue;
+    }
+
+    public void setVenue(String venue) {
+        this.venue = venue;
+    }
+//    private String mobile;
 
     public String getSit() {
         return sit;
@@ -35,14 +44,14 @@ public class ScheduleDetailsAndCHR {
     public void setStand(String stand) {
         this.stand = stand;
     }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
+//
+//    public String getMobile() {
+//        return mobile;
+//    }
+//
+//    public void setMobile(String mobile) {
+//        this.mobile = mobile;
+//    }
 
     public int getId() {
         return id;
@@ -92,21 +101,7 @@ public class ScheduleDetailsAndCHR {
         this.endTime = endTime;
     }
 
-    public int getTotalTimeIn() {
-        return totalTimeIn;
-    }
 
-    public void setTotalTimeIn(int totalTimeIn) {
-        this.totalTimeIn = totalTimeIn;
-    }
-
-    public int getTotalTimeOut() {
-        return totalTimeOut;
-    }
-
-    public void setTotalTimeOut(int totalTimeOut) {
-        this.totalTimeOut = totalTimeOut;
-    }
 
     public String getStatus() {
         return status;
@@ -150,9 +145,23 @@ public class ScheduleDetailsAndCHR {
 
     private ArrayList<TeacherCHRActivityDetails> teacherCHRActivityDetails;
 
-    public ScheduleDetailsAndCHR(int id, String courseName, String day, String discipline, String startTime, String endTime,
-                         int totalTimeIn, int totalTimeOut, String status, String date, String teacherName, String image,
-                         ArrayList<TeacherCHRActivityDetails> teacherCHRActivityDetails) {
+    public String getTotalTimeIn() {
+        return totalTimeIn;
+    }
+
+    public void setTotalTimeIn(String totalTimeIn) {
+        this.totalTimeIn = totalTimeIn;
+    }
+
+    public String getTotalTimeOut() {
+        return totalTimeOut;
+    }
+
+    public void setTotalTimeOut(String totalTimeOut) {
+        this.totalTimeOut = totalTimeOut;
+    }
+
+    public ScheduleDetailsAndCHR(int id, String courseName, String day, String discipline, String startTime, String endTime, String totalTimeIn, String totalTimeOut, String status, String date, String teacherName, String image, String sit, String stand, String venue, ArrayList<TeacherCHRActivityDetails> teacherCHRActivityDetails) {
         this.id = id;
         this.courseName = courseName;
         this.day = day;
@@ -165,9 +174,10 @@ public class ScheduleDetailsAndCHR {
         this.date = date;
         this.teacherName = teacherName;
         this.image = image;
+        this.sit = sit;
+        this.stand = stand;
+        this.venue = venue;
         this.teacherCHRActivityDetails = teacherCHRActivityDetails;
     }
-
-
 }
 

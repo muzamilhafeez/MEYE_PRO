@@ -17,6 +17,7 @@ import com.example.meyepro.api.GlobalsDataSave;
 import com.example.meyepro.api.RetrofitClient;
 import com.example.meyepro.databinding.ActivityAdminLoginBinding;
 import com.example.meyepro.databinding.ActivityLoginBinding;
+import com.example.meyepro.fragments.Admin.AdminSettingFragment;
 import com.example.meyepro.models.MEYE_USER;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.common.reflect.TypeToken;
@@ -29,6 +30,7 @@ import retrofit2.Retrofit;
 
 public class login extends AppCompatActivity {
 ActivityLoginBinding Binding;
+    public  static  MEYE_USER userInfoDetail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,8 +71,10 @@ ActivityLoginBinding Binding;
                           edit.commit();
                           GlobalsDataSave.meye_user=response.body();
                           MEYE_USER user= response.body();
+                          userInfoDetail=response.body();
 //                          Toast.makeText(login.this, ""+user.getRole(), Toast.LENGTH_SHORT).show();
                           if(user.getRole().contains("Admin")){
+
                               Intent i =new Intent(getApplicationContext(),AdminLogin.class);
                               i.putExtra("IntentData",new Gson().toJson(user));
                               startActivity(i);
@@ -86,6 +90,7 @@ ActivityLoginBinding Binding;
                               startActivity(i);
                           }
                           if(user.getRole().contains("Director")){
+                              AdminSettingFragment.ReportView=null;
                               Intent i =new Intent(getApplicationContext(), DirectorDashBoardActivity.class);
                               i.putExtra("IntentData",new Gson().toJson(user));
                               startActivity(i);

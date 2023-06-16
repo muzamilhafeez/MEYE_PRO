@@ -22,6 +22,7 @@ import com.example.meyepro.R;
 import com.example.meyepro.databinding.RecyclerviewRescheduleFreeSlotCellBinding;
 import com.example.meyepro.fragments.Admin.Schedule.PreSchedule.AdminSchedulePreScheduleFreeSlotShowActivity;
 import com.example.meyepro.fragments.Admin.Schedule.Reschedule.AdminScheduleReScheduleFreeSlotActivity;
+import com.example.meyepro.fragments.Admin.Schedule.Swapping.AdminScheduleSwappingFreeSlotActivity;
 import com.example.meyepro.models.TimeTable;
 import com.google.gson.Gson;
 
@@ -47,6 +48,21 @@ public class AdminScheduleFreeSlotAdapter extends RecyclerView.Adapter<AdminSche
     public AdminScheduleFreeSlotAdapter(ArrayList<TimeTable> TimeTableList, Context context) {
         this.TimeTableList = TimeTableList;
         this.context = context;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+
+            uniqueStartTimes.addAll(TimeTableList.stream().distinct().map(t -> t.getStarttime()).distinct().collect(Collectors.toList()));
+            uniqueEndTimes.addAll(TimeTableList.stream().distinct().map(t -> t.getEndtime()).distinct().collect(Collectors.toList()));
+            uniqueDays.addAll(TimeTableList.stream().distinct().map(t -> t.getDay()).distinct().collect(Collectors.toList()));
+            uniqueVenue.addAll(TimeTableList.stream().distinct().map(t -> t.getVenue()).distinct().collect(Collectors.toList()));
+            allSpinners = null;
+            allSpinners = new Spinner[uniqueDays.size()][uniqueDays.size()];
+
+        }
+    }
+    public AdminScheduleFreeSlotAdapter(ArrayList<TimeTable> TimeTableList, Context context, String ActivityName) {
+        this.TimeTableList = TimeTableList;
+        this.context = context;
+        this.ActivityName=ActivityName;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
 
             uniqueStartTimes.addAll(TimeTableList.stream().distinct().map(t -> t.getStarttime()).distinct().collect(Collectors.toList()));
@@ -309,6 +325,11 @@ public class AdminScheduleFreeSlotAdapter extends RecyclerView.Adapter<AdminSche
 //                        Toast.makeText(reschedule, "start:"++"End:"++""+, Toast.LENGTH_SHORT).show();
                             reschedule.recyclerviewSelectVenueDrowpdown(emptySpinner.getSelectedItem().toString() ,uniqueStartTimes.get(RowPosition),uniqueEndTimes.get(RowPosition),uniqueDays.get(finalI),context );
                         }
+                        else if(ActivityName.contains("AdminScheduleSwappingFreeSlotActivity")){
+                            AdminScheduleSwappingFreeSlotActivity swapping= (AdminScheduleSwappingFreeSlotActivity) context;
+//                        Toast.makeText(reschedule, "start:"++"End:"++""+, Toast.LENGTH_SHORT).show();
+                            swapping.recyclerviewSelectVenueDrowpdown(emptySpinner.getSelectedItem().toString() ,uniqueStartTimes.get(RowPosition),uniqueEndTimes.get(RowPosition),uniqueDays.get(finalI),context );
+                        }
 
                         if (position != 0) {
                             // Disable all other spinners
@@ -339,11 +360,18 @@ public class AdminScheduleFreeSlotAdapter extends RecyclerView.Adapter<AdminSche
                                     if (spinnerIN != null) {
                                         // specific column not enable
 //                                        Toast.makeText(reschedule, "ff", Toast.LENGTH_SHORT).show();
-                                        for (int indexDay = 0; indexDay < enableIndexList.size(); indexDay++) {
-                                            if (col==enableIndexList.get(indexDay)) { // Check if the spinner is at position
-                                            spinnerIN.setEnabled(true);
+                                        if(enableIndexList.size()!=0){
+                                            for (int indexDay = 0; indexDay < enableIndexList.size(); indexDay++) {
+                                                if (col==enableIndexList.get(indexDay)) { // Check if the spinner is at position
+                                                    spinnerIN.setEnabled(true);
+                                                }
                                         }
                                             }
+                                        else{
+                                                spinnerIN.setEnabled(true);
+                                            }
+
+
 //                                        if( col!=0 && col!=1 && col!=2 && col!=4){
 //                                            spinner.setEnabled(true);
 //                                        }

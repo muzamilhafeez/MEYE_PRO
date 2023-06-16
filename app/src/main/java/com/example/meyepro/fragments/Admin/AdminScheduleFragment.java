@@ -24,6 +24,8 @@ import com.example.meyepro.databinding.CustomAdminScheduleLayoutBinding;
 import com.example.meyepro.databinding.FragmentAdminScheduleBinding;
 import com.example.meyepro.fragments.Admin.Schedule.PreSchedule.AdminSchedulePreScheduleSelectRangeActivity;
 import com.example.meyepro.fragments.Admin.Schedule.Reschedule.AdminScheduleRescheduleFreeSlotSelectionActivity;
+import com.example.meyepro.fragments.Admin.Schedule.Swapping.AdminScheduleSwappingFreeSlotActivity;
+import com.example.meyepro.fragments.Admin.Schedule.Swapping.AdminScheduleSwappingTimeTableSelectActivity;
 import com.example.meyepro.models.MEYE_USER;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
@@ -260,7 +262,9 @@ public class AdminScheduleFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //code
-
+                Intent i= new Intent(getContext(), AdminScheduleSwappingTimeTableSelectActivity.class);
+                i.putExtra("UserIntent",new Gson().toJson(obj));
+                startActivity(i);
                 customDialog.dismiss();
             }
         });

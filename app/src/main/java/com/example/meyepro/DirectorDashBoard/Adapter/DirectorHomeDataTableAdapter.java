@@ -59,7 +59,7 @@ public class DirectorHomeDataTableAdapter extends RecyclerView.Adapter<DirectorH
         holder.binding.txtViewDirectorTeacher.setText(obj.getTeacherName()+"");
         holder.binding.txtViewDirectorStatus.setText(obj.getStatus()+"");
         holder.binding.txtViewDirectorSit.setText(obj.getSit()+"");
-        holder.binding.txtViewDirectorMobile.setText(obj.getMobile()+"");
+//        holder.binding.txtViewDirectorMobile.setText(obj.getMobile()+"");
         holder.binding.txtViewDirectorStrand.setText(obj.getStand()+"");
 
 //        ArrayList<TeacherCHRActivityDetails> teacherCHRActivityDetails= obj.getTeacherCHRActivityDetails();

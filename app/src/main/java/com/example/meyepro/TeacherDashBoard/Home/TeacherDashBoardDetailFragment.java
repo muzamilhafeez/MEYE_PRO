@@ -1,5 +1,6 @@
 package com.example.meyepro.TeacherDashBoard.Home;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import com.example.meyepro.R;
 import com.example.meyepro.TeacherDashBoard.Adapter.SessionComingSliderAdapter;
 import com.example.meyepro.TeacherDashBoard.Adapter.TeacherNotificationAdapter;
 import com.example.meyepro.TeacherDashBoard.Adapter.TeacherTimeTableAdapter;
+import com.example.meyepro.TeacherDashBoard.Notification.TeacherNotificationApprovalActivity;
 import com.example.meyepro.api.Api;
 import com.example.meyepro.api.RetrofitClient;
 import com.example.meyepro.databinding.FragmentTeacherDashBoardDetailBinding;
@@ -72,6 +74,14 @@ ArrayList<TimeTable> timeSlots=new ArrayList<>();
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding=FragmentTeacherDashBoardDetailBinding.inflate(getLayoutInflater());
+
+        binding.ImageViewTeacgherNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(getContext(), TeacherNotificationApprovalActivity.class);
+                startActivity(i);
+            }
+        });
         ArrayList<String> data= new ArrayList<>();
         data.add("Muzamil");
         data.add("ali");

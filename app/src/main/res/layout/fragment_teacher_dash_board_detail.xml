@@ -74,6 +74,7 @@
         android:layout_height="40dp"
         android:layout_marginRight="10dp"
         android:layout_gravity="center|right"
+        android:id="@+id/Image_View_Teacgher_Notification"
         android:src="@drawable/notification_icon" />
 
 

@@ -36,6 +36,7 @@ FragmentAdminHomeBinding Binding;
     private LiveCameraAdapter cameraAdapter;
     private LibVLC libVLC;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

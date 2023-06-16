@@ -6,11 +6,14 @@
         android:title="Name" />
     <item
         android:id="@+id/action_Director_Date"
+        android:icon="@drawable/ic_baseline_arrow_forward_ios_24"
         android:title="Date" />
     <item
         android:id="@+id/action_Director_Course"
+        android:icon="@mipmap/ic_launcher"
         android:title="Course" />
     <item
         android:id="@+id/action_Director_Discipline"
+        android:icon="@drawable/ic_baseline_person"
         android:title="Discipline" />
 </menu>

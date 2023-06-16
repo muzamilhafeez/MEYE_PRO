@@ -17,6 +17,7 @@ import com.example.meyepro.adapters.AdminTimeTableScheduleAdapter;
 import com.example.meyepro.api.Api;
 import com.example.meyepro.api.RetrofitClient;
 import com.example.meyepro.databinding.ActivityAdminSettingRuleSettingSetRuleBinding;
+import com.example.meyepro.models.Get_Rules_Timetable;
 import com.example.meyepro.models.MEYE_USER;
 import com.example.meyepro.models.Rules;
 import com.example.meyepro.models.TimeTable;
@@ -37,6 +38,7 @@ ActivityAdminSettingRuleSettingSetRuleBinding binding;
     AdminTimeTableScheduleAdapter adapter;
     ArrayList<TimeTable> timeSlots=new ArrayList<>();
     ArrayList<TimeTable> ScheduletimeSlots=new ArrayList<>();
+    Get_Rules_Timetable get_rules_timetable=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +61,7 @@ ActivityAdminSettingRuleSettingSetRuleBinding binding;
                     timeSlotsSelected.clear();
                     timeSlotsSelected.addAll(ScheduletimeSlots);
                     AdminTimeTableScheduleAdapter adapter = new
-                            AdminTimeTableScheduleAdapter(timeSlots, ScheduletimeSlots, AdminSettingRuleSettingSetRuleActivity.this,true, "");
+                            AdminTimeTableScheduleAdapter(timeSlots, ScheduletimeSlots, AdminSettingRuleSettingSetRuleActivity.this,true, "AdminSettingRuleSettingSetRuleActivity");
                     LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext());
                     binding.RecycerviewAdminRuleSetTimeTable.setLayoutManager(manager);
                     binding.RecycerviewAdminRuleSetTimeTable.
@@ -83,7 +85,10 @@ ActivityAdminSettingRuleSettingSetRuleBinding binding;
         binding.btnSetRuleSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(timeSlotsSelected.size()!=0){
+//                Toast.makeText(AdminSettingRuleSettingSetRuleActivity.this, timeSlotsSelected.size()+":"+new Gson().toJson(timeSlotsSelected), Toast.LENGTH_SHORT).show();
+
+             ;
+              if(timeSlotsSelected.size()!=0){
                     ArrayList<Rules> rulesList= new ArrayList<>();
 
                     for (TimeTable table :timeSlotsSelected) {
@@ -104,7 +109,7 @@ ActivityAdminSettingRuleSettingSetRuleBinding binding;
                         rules.setTimeTableId(table.getId());
                         rulesList.add(rules);
                     }//end foreach
-
+//                  binding.textViewTeacherName.setText(new Gson().toJson(rulesList));
 
                     RetrofitClient client = RetrofitClient.getInstance();
                     Api api = client.getMyApi();
@@ -160,15 +165,45 @@ ActivityAdminSettingRuleSettingSetRuleBinding binding;
                                 ScheduletimeSlots.clear();
                                 ScheduletimeSlots.addAll(response.body());
 
-                                AdminTimeTableScheduleAdapter adapter = new
-                                        AdminTimeTableScheduleAdapter(timeSlots, ScheduletimeSlots, AdminSettingRuleSettingSetRuleActivity.this,"AdminSettingRuleSettingSetRuleActivity");
-                                LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext());
-                                binding.RecycerviewAdminRuleSetTimeTable.setLayoutManager(manager);
-                                //  Binding.RecycerviewAdminViewTeacher.setHasFixedSize(true);
-                                binding.RecycerviewAdminRuleSetTimeTable.
-                                        setAdapter(adapter);
+                                api.get_rules_timetable(UserIntent.getName()).enqueue(new Callback<Get_Rules_Timetable>() {
+                                    @Override
+                                    public void onResponse(Call<Get_Rules_Timetable> call, Response<Get_Rules_Timetable> response) {
+                                        if(response.isSuccessful()){
+                                             get_rules_timetable= response.body();
 
-                                binding.progressBar.setVisibility(View.GONE);
+                                            if(get_rules_timetable.getStartRecord()){
+                                                binding.checkBoxFirst10.setChecked(true);
+                                            }
+                                            if(get_rules_timetable.getEndRecord()){
+                                                binding.checkBoxLast10Min.setChecked(true);
+                                            }
+                                            if(get_rules_timetable.getMidRecord()){
+                                                binding.checkBoxMid10Min.setChecked(true);
+                                            }
+                                            if(get_rules_timetable.getFullRecord()){
+                                                binding.checkBoxFull10Min.setChecked(true);
+                                            }
+                                            AdminTimeTableScheduleAdapter adapter = new
+                                                    AdminTimeTableScheduleAdapter(timeSlots, ScheduletimeSlots, AdminSettingRuleSettingSetRuleActivity.this,"AdminSettingRuleSettingSetRuleActivity", get_rules_timetable);
+                                            LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext());
+                                            binding.RecycerviewAdminRuleSetTimeTable.setLayoutManager(manager);
+                                            //  Binding.RecycerviewAdminViewTeacher.setHasFixedSize(true);
+                                            binding.RecycerviewAdminRuleSetTimeTable.
+                                                    setAdapter(adapter);
+
+                                            binding.progressBar.setVisibility(View.GONE);
+
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Get_Rules_Timetable> call, Throwable t) {
+                                        Toast.makeText(AdminSettingRuleSettingSetRuleActivity.this, "ttt"+t, Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+
+
                             }
                         }
 
@@ -198,7 +233,8 @@ ActivityAdminSettingRuleSettingSetRuleBinding binding;
 
     ArrayList<TimeTable>  timeSlotsSelected = new ArrayList<>();
     public void recyclerViewSelectedTimeTableSlot(TimeTable timeTable, Context context, TextView textView) {
-//
+
+//       Toast.makeText(context, ""+timeTable.getDay(), Toast.LENGTH_SHORT).show();
         if (timeSlotsSelected.contains(timeTable)) {
             timeSlotsSelected.remove(timeTable);
             textView.setBackgroundColor(Color.TRANSPARENT);

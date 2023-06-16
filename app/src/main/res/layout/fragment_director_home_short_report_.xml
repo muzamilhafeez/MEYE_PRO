@@ -84,33 +84,35 @@
                     android:id="@+id/txt_view_director_date"
                     android:text="2012-12-12"/>
                 <TextView
-                    android:layout_width="30dp"
+                    android:layout_width="170dp"
                     android:layout_marginTop="6dp"
                     android:layout_marginLeft="8dp"
 
                     android:layout_gravity="center"
                     android:textSize="@dimen/spacing_smlarge"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:id="@+id/txt_view_director_sit"
                     android:text="Sit"/>
                 <TextView
-                    android:layout_width="70dp"
+                    android:layout_width="170dp"
                     android:layout_marginTop="6dp"
                     android:layout_gravity="center"
+                    android:gravity="center"
                     android:textSize="@dimen/spacing_smlarge"
                     android:layout_marginLeft="8dp"
                     android:id="@+id/txt_view_director_strand"
                     android:layout_height="wrap_content"
                     android:text="Strand"/>
-                <TextView
-                    android:layout_width="70dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_gravity="center"
-                    android:textSize="@dimen/spacing_smlarge"
-                    android:layout_marginLeft="8dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txt_view_director_mobile"
-                    android:text="Mobile"/>
+<!--                <TextView-->
+<!--                    android:layout_width="70dp"-->
+<!--                    android:layout_marginTop="6dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:textSize="@dimen/spacing_smlarge"-->
+<!--                    android:layout_marginLeft="8dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:id="@+id/txt_view_director_mobile"-->
+<!--                    android:text="Mobile"/>-->
                 <TextView
                     android:layout_width="100dp"
                     android:layout_marginLeft="8dp"

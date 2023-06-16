@@ -20,6 +20,8 @@ import com.example.meyepro.databinding.FragmentDirectorHomeShortReportBinding;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -55,16 +57,11 @@ FragmentDirectorHomeShortReportBinding binding;
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if(response.isSuccessful()){
-
                     scheduleDetailsAndCHRS.clear();
-
-
-
                     scheduleDetailsAndCHRS.addAll(new Gson().fromJson(response.body(),new TypeToken<ArrayList<ScheduleDetailsAndCHR>>(){}.getType()));
-
                     ArrayList<ScheduleDetailsAndCHR> scheduleDetaShortList=new ArrayList<>();
                     for (ScheduleDetailsAndCHR scheduleData: scheduleDetailsAndCHRS) {
-                        if(scheduleData.getStatus().contains("Late")){
+                        if(!scheduleData.getStatus().contains("Held")){
                             scheduleDetaShortList.add(scheduleData);
                         }
                     }
@@ -92,7 +89,7 @@ FragmentDirectorHomeShortReportBinding binding;
     public void showPopup() {
         if(scheduleDetailsAndCHRS.size()!=0){
             PopupMenu popup = new PopupMenu(getContext(), binding.imageviewAdminHomeSearchIcon);
-            popup.getMenuInflater().inflate(R.menu.popup_director_search_menu, popup.getMenu());
+            popup.inflate(R.menu.popup_director_search_menu);
             Object menuHelper;
             Class[] argTypes;
             ArrayList<ScheduleDetailsAndCHR> filteredList = new ArrayList<>();
@@ -164,8 +161,29 @@ FragmentDirectorHomeShortReportBinding binding;
                     }
                     return true;
                 }
+
+
+
             });
             popup.show();
+            binding.imageviewAdminHomeSearchIcon.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    try {
+                        PopupMenu popupMenu = new PopupMenu(getContext(), binding.imageviewAdminHomeSearchIcon);
+                        Field popupField = PopupMenu.class.getDeclaredField("mPopup");
+                        popupField.setAccessible(true);
+                        Object menuPopupHelper = popupField.get(popupMenu);
+                        Class<?> popupHelperClass = Class.forName(menuPopupHelper.getClass().getName());
+                        Method setForceShowIcon = popupHelperClass.getDeclaredMethod("setForceShowIcon", boolean.class);
+                        setForceShowIcon.invoke(menuPopupHelper, true);
+                        popupMenu.show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return true;
+                }
+            });
         }
 
     }

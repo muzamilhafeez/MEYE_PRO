@@ -17,6 +17,7 @@ import com.example.meyepro.api.RetrofitClient;
 import com.example.meyepro.databinding.ActivityAdminPreScheduleTimeTableShowSelectBinding;
 import com.example.meyepro.fragments.Admin.Schedule.Reschedule.AdminScheduleRecheduleSelectTimeTableActivity;
 import com.example.meyepro.models.MEYE_USER;
+import com.example.meyepro.models.PreSchedule;
 import com.example.meyepro.models.Reschedule;
 import com.example.meyepro.models.TimeTable;
 import com.google.gson.Gson;
@@ -120,9 +121,9 @@ ActivityAdminPreScheduleTimeTableShowSelectBinding binding;
     }
 
     public void recyclerViewSelectedTimeTableSlot(TimeTable timeTable, Context context, TextView textView) {
-        Reschedule preSchedule = new Gson().fromJson(SelectedPreSchedule, Reschedule.class);
+        PreSchedule preSchedule = new Gson().fromJson(SelectedPreSchedule, PreSchedule.class);
 
-        preSchedule.setTeacherSlotId(timeTable.getId());
+        preSchedule.setTimeTableId(timeTable.getId());
         RetrofitClient client= RetrofitClient.getInstance();
         Api api= client.getMyApi();
         api.add_preschedule(preSchedule).enqueue(new Callback<Map<String, String>>() {

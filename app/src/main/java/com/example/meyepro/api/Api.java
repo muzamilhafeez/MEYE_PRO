@@ -9,21 +9,30 @@ import androidx.annotation.NonNull;
 
 import com.example.meyepro.DirectorDashBoard.Model.ScheduleDetailsAndCHR;
 import com.example.meyepro.StudentDashBoard.Model.StudentCourse;
+import com.example.meyepro.StudentDashBoard.Model.StudentNotification;
 import com.example.meyepro.StudentDashBoard.Model.StudentOFCourseAttendance;
 import com.example.meyepro.models.Attendance;
 import com.example.meyepro.models.CAMERA;
+import com.example.meyepro.models.ClaimVideo;
 import com.example.meyepro.models.DVR;
+import com.example.meyepro.models.DemoVideosResponse;
+import com.example.meyepro.models.Get_Rules_Timetable;
 import com.example.meyepro.models.MEYE_USER;
+import com.example.meyepro.models.PreSchedule;
 import com.example.meyepro.models.Reschedule;
 import com.example.meyepro.models.Rules;
 import com.example.meyepro.models.SectionOffer;
 import com.example.meyepro.models.Student;
+import com.example.meyepro.models.Swapping;
+import com.example.meyepro.models.SwappingUser;
+import com.example.meyepro.models.TeacherDemoCHR;
 import com.example.meyepro.models.TimeTable;
 import com.example.meyepro.models.recordings_details_by_teachername;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
@@ -50,7 +59,8 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface Api {
-    public static String BASE_URL="http://192.168.100.10:8000/";
+    public static String BASE_URL="http://192.168.100.5:8000/";
+
     //start function
     @GET("api/signin")
     public Call<MEYE_USER> loginUser(@Query("userId") String user, @Query("password") String pass);
@@ -58,8 +68,14 @@ public interface Api {
     @GET("api/recordings-details-by-teachername/{teacherName}")
     public Call<ArrayList<recordings_details_by_teachername>> recordings_details_by_teachername (@Path("teacherName") String teacherName);
 
+    @GET("api/get-rules-timetable/{teacherName}")
+    public Call<Get_Rules_Timetable> get_rules_timetable (@Path("teacherName") String teacherName);
+
     @GET("api/teacher-timetable-details/{teacherName}")
     public Call<ArrayList<TimeTable>> timetable_teacher_details (@Path("teacherName") String teacherName);
+
+    @GET("api/get-attendance-notification")
+    public Call<Integer> api_get_attendance_notification (@Query("aridNumber") String aridNumber);
 
     @GET("api/timetable-details")
     public Call<ArrayList<TimeTable>> All_timetable_teacher_details ();
@@ -67,10 +83,24 @@ public interface Api {
     @GET("api/section-offer-details")
     public Call<ArrayList<SectionOffer>> Section_Offer_details ();
 
+    @GET("api/demo")
+    public Call<ArrayList<TeacherDemoCHR>> api_demo ();
+
     @GET("api/check-teacher-reschedule")
     public Call<String> check_teacher_reschedule (@Query("teacherName") String teacherName );
 
-   @GET("api/dvr-details/")
+    @GET("api/teacher-claim")
+    public Call<ArrayList<ClaimVideo>> api_teacher_claim(@Query("teacherSlotId") int teacherSlotId );
+
+    @GET("api/demovideos")
+    public Call<DemoVideosResponse> api_demovideos(@Query("file") String file );
+
+    @GET("api/get-student-notification-data")
+    public Call<ArrayList<StudentNotification>> api_get_student_notification_data(@Query("aridNumber") String aridNumber );
+
+    @GET("api/get-teacher-notification-data")
+    public Call<ArrayList<StudentNotification>> api_get_teacher_notification_data(@Query("teacherName") String aridNumber );
+    @GET("api/dvr-details/")
    public Call<ArrayList<DVR>> dvr_details ();
     @GET("api/book/getbook")
     public Call<String> dvr_details2 ();
@@ -92,14 +122,24 @@ public interface Api {
     @POST("api/add-reschedule")
     public Call<Map<String,String>> add_reschedule(@Body Reschedule reschedule);
     @POST("api/add-preschedule")
-    public Call<Map<String,String>> add_preschedule(@Body Reschedule reschedule);
+    public Call<Map<String,String>> add_preschedule(@Body PreSchedule reschedule);
+    @POST("api/add-swapping")
+    public Call<Map<String,String>> add_swapping(@Body Swapping swapping);
+
+    @POST("api/student-attendance-claim")
+    public Call<String> api_student_attendance_claim(@Body RequestBody claim);
+
+    @GET("api/get-swapping-teacher-data")
+    public Call<String> get_swapping_teacher_data(@Query("day") String day, @Query("startTime") String startTime, @Query("endTime") String endTime, @Query("timeTableId") int timeTableId);
 
     @PUT("api/update-camera-details")
     public Call<Map<String,CAMERA>> update_camera_details(@Body CAMERA camera);
 
+    @GET("api/update-attendance")
+    public Call<String> api_update_attendance(@Query("attendanceId") int attendanceId,@Query("status") Boolean status);
+
     @GET("api/get-teacher-chr")
     public Call<ArrayList<ScheduleDetailsAndCHR>> get_teacher_chr(@Query("teacherName") String teacherName);
-
     @GET("api/get-all-teacher-chr")
     public Call<String> get_all_teacher_chr();
     @POST("api/add-camera")

@@ -33,6 +33,71 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".TeacherDashBoard.Notification.TeacherNotificationApprovalActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".StudentDashBoard.Notification.StudentNotificationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_student_notification"
+            android:theme="@style/Theme.MEyePro.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".TeacherDashBoard.CHR.TeacherClaimVideoPlayActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".TeacherDashBoard.CHR.teacherCHRClaimVideoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".fragments.Admin.Setting.DemoVideo.AdminSettingDemoVideoTeacherCHRReportActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".fragments.Admin.Setting.DemoVideo.AdminSettingTeacherVideoDemoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".fragments.Admin.Schedule.Swapping.AdminScheduleSwappingUserActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".fragments.Admin.Schedule.Swapping.AdminScheduleSwappingTimeTableSelectActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".fragments.Admin.Schedule.Swapping.AdminScheduleSwappingFreeSlotActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".fragments.Admin.Schedule.PreSchedule.AdminPreScheduleTimeTableShowSelectActivity"
             android:exported="false">
             <meta-data

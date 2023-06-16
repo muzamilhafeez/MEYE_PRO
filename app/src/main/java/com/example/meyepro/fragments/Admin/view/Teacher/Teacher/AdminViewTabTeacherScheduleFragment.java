@@ -117,7 +117,7 @@ FragmentAdminViewTabTeacherScheduleBinding Binding;
 
             @Override
             public void onFailure(Call<ArrayList<TimeTable>> call, Throwable t) {
-                Toast.makeText(getContext(), ""+t.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), ""+t.toString(), Toast.LENGTH_SHORT).show();
             }
         });
         //code end

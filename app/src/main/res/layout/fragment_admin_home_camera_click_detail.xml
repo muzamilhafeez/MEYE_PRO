@@ -90,8 +90,7 @@
                         android:layout_marginLeft="10dp"
                         android:textAppearance="?attr/textAppearanceListItem" />
                 </LinearLayout>
-                <!--                end details-->
-                details-->
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

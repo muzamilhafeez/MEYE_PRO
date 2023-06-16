@@ -103,7 +103,7 @@
     android:layout_marginLeft="8dp"
     android:gravity="center"
     android:id="@+id/btn_save_ReSchedule"
-    android:text="Save"
+    android:text="Next"
     android:background="@drawable/edit_style" />
 
 

@@ -24,9 +24,12 @@ import androidx.fragment.app.Fragment;
 import com.example.meyepro.TeacherDashBoard.CHR.TeacherSelectTimTableCHRActivity;
 import com.example.meyepro.databinding.RecyclerviewTimetableScheduleCellBinding;
 import com.example.meyepro.fragments.Admin.Schedule.PreSchedule.AdminPreScheduleTimeTableShowSelectActivity;
+import com.example.meyepro.fragments.Admin.Schedule.Swapping.AdminScheduleSwappingTimeTableSelectActivity;
 import com.example.meyepro.fragments.Admin.Setting.RuleSetting.AdminSettingRuleSettingSetRuleActivity;
+import com.example.meyepro.models.Get_Rules_Timetable;
 import com.example.meyepro.models.MEYE_USER;
 import com.example.meyepro.models.TimeTable;
+import com.example.meyepro.models.TimeTableRules;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -38,6 +41,7 @@ public class AdminTimeTableScheduleAdapter extends RecyclerView.Adapter<AdminTim
     private Fragment fragment;
     Boolean SelectAll=false;
     String ActivityName ="";
+Get_Rules_Timetable   get_rules_timetable;
 
     ArrayList<String> uniqueStartTimes= new ArrayList<>();
     ArrayList<String> uniqueEndTimes= new ArrayList<>();
@@ -68,10 +72,27 @@ public class AdminTimeTableScheduleAdapter extends RecyclerView.Adapter<AdminTim
             System.out.println("TimeTable"+t.getVenue());
         }
     }
+    public AdminTimeTableScheduleAdapter(ArrayList<TimeTable> TimeTableList , ArrayList<TimeTable> TimeTableSchrduleList, Context context, String ActivtyName , Get_Rules_Timetable get_rules_timetable) {
+        this.ActivityName=ActivtyName;
+        this.TimeTableList = TimeTableList;
+        this.context = context;
+        this.TimeTableSchrduleList=TimeTableSchrduleList;
+        this.get_rules_timetable=get_rules_timetable;
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            uniqueStartTimes.addAll(TimeTableList.stream().distinct().map(t -> t.getStarttime()).distinct().collect(Collectors.toList()));
+            uniqueEndTimes.addAll(TimeTableList.stream().distinct().map(t -> t.getEndtime()).distinct().collect(Collectors.toList()));
+            uniqueDays.addAll(TimeTableList.stream().distinct().map(t -> t.getDay()).distinct().collect(Collectors.toList()));
+        }
+        for (TimeTable t :TimeTableList) {
+            System.out.println("TimeTable"+t.getVenue());
+        }
+    }
     public AdminTimeTableScheduleAdapter(ArrayList<TimeTable> TimeTableList ,ArrayList<TimeTable> TimeTableSchrduleList, Context context,Boolean SelectAll,String ActivityName) {
         this.TimeTableList = TimeTableList;
         this.context = context;
         this.TimeTableSchrduleList=TimeTableSchrduleList;
+        this.ActivityName=ActivityName;
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             uniqueStartTimes.addAll(TimeTableList.stream().distinct().map(t -> t.getStarttime()).distinct().collect(Collectors.toList()));
@@ -204,7 +225,24 @@ public class AdminTimeTableScheduleAdapter extends RecyclerView.Adapter<AdminTim
                         if (timeTable.getDay().equals(uniqueDays.get(i))) {
                             if(SelectAll){
                                 textView.setBackgroundColor(Color.parseColor("#03A9F4"));
+                            }else if(get_rules_timetable!=null){
+                                for (TimeTableRules tableRules :get_rules_timetable.getData()){
+                                    if (tableRules.getStartTime().toString().equals(timeTable.getStarttime()) ) {
+                                        if (tableRules.getDay().equals(timeTable.getDay())) {
+                                            if(ActivityName.contains("AdminSettingRuleSettingSetRuleActivity")){
+                                                if(tableRules.isSelected()){
+                                                    textView.setBackgroundColor(Color.parseColor("#03A9F4"));
+                                                    AdminSettingRuleSettingSetRuleActivity adminPreScheduleTimeTableShowSelectActivity= (AdminSettingRuleSettingSetRuleActivity) context;
+                                                    adminPreScheduleTimeTableShowSelectActivity.recyclerViewSelectedTimeTableSlot(timeTable, context, textView);
+                                                }
+
+                                            }
+                                        }
+                                    }
+                                }
+
                             }
+
 
                             textView.setText(""+timeTable.getDiscipline()+"\n"+timeTable.getCourseName()+"\n"+timeTable.getVenue());
 
@@ -214,9 +252,13 @@ public class AdminTimeTableScheduleAdapter extends RecyclerView.Adapter<AdminTim
                                     if(ActivityName.contains("AdminPreScheduleTimeTableShowSelectActivity")){
                                         AdminPreScheduleTimeTableShowSelectActivity adminPreScheduleTimeTableShowSelectActivity= (AdminPreScheduleTimeTableShowSelectActivity) context;
                                         adminPreScheduleTimeTableShowSelectActivity.recyclerViewSelectedTimeTableSlot(timeTable, context, textView);
-                                    }  if(ActivityName.contains("AdminSettingRuleSettingSetRuleActivity")){
+                                    } else if(ActivityName.contains("AdminSettingRuleSettingSetRuleActivity")){
                                         AdminSettingRuleSettingSetRuleActivity adminPreScheduleTimeTableShowSelectActivity= (AdminSettingRuleSettingSetRuleActivity) context;
                                         adminPreScheduleTimeTableShowSelectActivity.recyclerViewSelectedTimeTableSlot(timeTable, context, textView);
+                                    }
+                                   else if(ActivityName.contains("AdminScheduleSwappingTimeTableSelectActivity")){
+                                        AdminScheduleSwappingTimeTableSelectActivity adminScheduleSwappingTimeTableSelectActivity= (AdminScheduleSwappingTimeTableSelectActivity) context;
+                                        adminScheduleSwappingTimeTableSelectActivity.recyclerViewSelectedTimeTableSlot(timeTable, context, textView);
                                     }
 
 

@@ -47,7 +47,7 @@
                     app:shapeAppearanceOverlay="@style/imageViewRounded"
                     app:strokeColor="@android:color/black" />
 
-                <TextView
+                <EditText
                     android:id="@+id/textView_Teacher_Name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

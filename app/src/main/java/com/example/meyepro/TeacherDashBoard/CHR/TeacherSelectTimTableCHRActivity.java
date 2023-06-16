@@ -76,6 +76,14 @@ ActivityTeacherSelectTimTableChractivityBinding binding;
         Type type = new TypeToken<MEYE_USER>(){}.getType();
         String data= getIntent().getStringExtra("UserLogin");
         MEYE_USER user= new Gson().fromJson(data,type);
+
+        binding.btnClaim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), teacherCHRClaimVideoActivity.class);
+                startActivity(i);
+            }
+        });
         binding.txtCourse.setText(obj.getCourseName());
         binding.txtDate.setText(""+obj.getDate());
         binding.txtDay.setText(""+obj.getDay());
@@ -213,6 +221,7 @@ binding.btnGeneratePDF.setOnClickListener(new View.OnClickListener() {
 
 // Get the drawable from the ImageView
         BitmapDrawable bmpDrawable = (BitmapDrawable) binding.profileImageTeacher.getDrawable();
+       if(bmpDrawable!=null){
         Bitmap bmpImage = bmpDrawable.getBitmap();
 
         // Calculate the desired resolution based on the zoom level
@@ -229,7 +238,7 @@ binding.btnGeneratePDF.setOnClickListener(new View.OnClickListener() {
 // Draw the high-resolution bitmap onto the PDF canvas
         canvas.drawBitmap(highResBitmap, x, 20, paint);
 
-
+}
 
         // below line is used for adding typeface for
         // our text which we will be adding in our PDF file.
@@ -299,7 +308,6 @@ binding.btnGeneratePDF.setOnClickListener(new View.OnClickListener() {
 //
 //
 //        }
-        ContextWrapper cw = new ContextWrapper(getApplicationContext());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             if (Environment.isExternalStorageManager()) {
     // The app has been granted the MANAGE_EXTERNAL_STORAGE permission
@@ -307,6 +315,7 @@ binding.btnGeneratePDF.setOnClickListener(new View.OnClickListener() {
                 try {
                     // after creating a file name we will
                     // write our PDF file to that location.
+
                     pdfDocument.writeTo(new FileOutputStream(file));
 
                     // below line is to print toast message

@@ -8,6 +8,40 @@ public class Attendance {
     private boolean status;
     private String name;
 
+    private  String day, startTime, endTime, teacherName;
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
     public Attendance(int id, int enrollId, String date, boolean status, String name) {
         this.id = id;
         this.enrollId = enrollId;

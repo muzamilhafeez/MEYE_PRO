@@ -110,6 +110,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
         android:id="@+id/btn_next_ReSchedule"
-        android:text="Next"
+        android:text="Save"
         android:background="@drawable/edit_style" />
 </RelativeLayout>
