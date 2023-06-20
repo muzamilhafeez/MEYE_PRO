@@ -12,5 +12,8 @@
         android:id="@+id/action_Teacher_CHR"
         android:title="CHR"
         android:icon="@drawable/ic_baseline_table_chart_24"/>
-
+    <item
+        android:id="@+id/action_Teacher_Task_Report"
+        android:title="Task Report"
+        android:icon="@drawable/report_icon"/>
 </menu>

@@ -2,10 +2,13 @@ package com.example.meyepro.TeacherDashBoard.CHR;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.util.Log;
@@ -14,12 +17,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.meyepro.DirectorDashBoard.Home.DirectorDashBoardHomeFragment;
+import com.example.meyepro.DirectorDashBoard.Home.DirectorDataTableFragment;
 import com.example.meyepro.DirectorDashBoard.Model.ScheduleDetailsAndCHR;
 import com.example.meyepro.R;
 import com.example.meyepro.StudentDashBoard.Adapter.StudentOfCourseAttendanceAdapter;
 import com.example.meyepro.StudentDashBoard.Attendance.StudentOFCourseAttendanceActivity;
 import com.example.meyepro.StudentDashBoard.Model.StudentOFCourseAttendance;
 import com.example.meyepro.TeacherDashBoard.Adapter.TeacherCHRAdapter;
+import com.example.meyepro.TeacherDashBoard.CHR.ChangeActivity.Teacher_View_CHR_DataViewFragment;
 import com.example.meyepro.adapters.AdminTimeTableScheduleAdapter;
 import com.example.meyepro.api.Api;
 import com.example.meyepro.api.RetrofitClient;
@@ -28,6 +34,8 @@ import com.example.meyepro.fragments.Admin.Schedule.Reschedule.AdminScheduleRech
 import com.example.meyepro.models.MEYE_USER;
 import com.example.meyepro.models.TimeTable;
 import com.google.gson.Gson;
+import com.leinardi.android.speeddial.SpeedDialActionItem;
+import com.leinardi.android.speeddial.SpeedDialView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -49,6 +57,61 @@ FragmentTeacherCHRBinding binding;
         // Inflate the layout for this fragment
         binding=FragmentTeacherCHRBinding.inflate(getLayoutInflater());
         //code start
+
+        SpeedDialView speedDialView = binding.speedDial;
+        SpeedDialActionItem fabMenuItem1 = new SpeedDialActionItem.Builder(R.id.fabMenuItem1, R.drawable.table_icon)
+                .setLabel("Switch to DataTable")
+                .setFabImageTintColor(getResources().getColor(R.color.blue_500))
+                .setFabBackgroundColor(Color.WHITE)
+                .create();
+//        SpeedDialActionItem fabMenuItem2 = new SpeedDialActionItem.Builder(R.id.fabMenuItem2, R.drawable.swap_box_icon)
+//                .setLabel("Switch to CHR")
+//                .setFabImageTintColor(getResources().getColor(R.color.blue_500))
+//                .setFabBackgroundColor(Color.WHITE)
+//                .create();
+
+        speedDialView.addActionItem(fabMenuItem1);
+        speedDialView.setElevation(0);
+        speedDialView.setSelected(false);
+//        speedDialView.addActionItem(fabMenuItem2);
+        // Remove shadow
+
+//        SpeedDialActionItem fabMenuItemcheck=        speedDialView.getActionItems().get(0);
+
+//        speedDialView.
+        //if using support app compat
+        // Set elevation to 0 to remove shadow
+//        fabMenuItem1.setCompatElevation(16.0f);
+        // Add the following code after setting the elevation to 0
+        speedDialView.setOnActionSelectedListener(new SpeedDialView.OnActionSelectedListener() {
+            private boolean isFirstSelection = false;
+            @Override
+            public boolean onActionSelected(SpeedDialActionItem speedDialActionItem) {
+                if (isFirstSelection) {
+                    isFirstSelection = false;
+                    Drawable fabImage = speedDialActionItem.getFabImageDrawable(getContext());
+                    if (fabImage != null) {
+                        fabImage.setCallback(null); // Remove the callback to prevent memory leaks
+                        fabImage.setCallback(speedDialView); // Set the SpeedDialView as the new callback
+                        fabImage.setAlpha(255); // Reset the alpha value to its original state
+                        fabImage.clearColorFilter(); // Clear any applied color filter
+                    }
+                }
+
+                switch (speedDialActionItem.getId()) {
+                    case R.id.fabMenuItem1:
+                        // Handle click on Item 1
+                        loadFragment(new Teacher_View_CHR_DataViewFragment());
+                        break;
+//                    case R.id.fabMenuItem2:
+//                        // Handle click on Item 2
+//                        DirectorDashBoardHomeFragment m = new DirectorDashBoardHomeFragment();
+//                        loadFragment(m);
+//                        break;
+                }
+                return false;
+            }
+        });
         fragmentData= getArguments().getString("FragmentData");
         MEYE_USER user= new Gson().fromJson(fragmentData,MEYE_USER.class);
         if(user!=null) {
@@ -156,5 +219,14 @@ FragmentTeacherCHRBinding binding;
         i.putExtra("intentData",new Gson().toJson(obj));
         i.putExtra("UserLogin",fragmentData);
         context.startActivity(i);
+    }
+    private void loadFragment(Fragment f){
+        FragmentTransaction ft =
+                getActivity().getSupportFragmentManager().beginTransaction();
+        //manage back track
+//        ft.add(R.id.frament_container_admin, f);
+        ft.replace(R.id.frament_container_Teacher, f);
+        //   ft.addToBackStack(null);
+        ft.commit();
     }
 }

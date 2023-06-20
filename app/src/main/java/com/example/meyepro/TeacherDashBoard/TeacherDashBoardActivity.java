@@ -15,6 +15,7 @@ import com.example.meyepro.R;
 import com.example.meyepro.TeacherDashBoard.Attendance.TeacherAttendanceMarkActivity;
 import com.example.meyepro.TeacherDashBoard.CHR.TeacherCHRFragment;
 import com.example.meyepro.TeacherDashBoard.Home.TeacherDashBoardDetailFragment;
+import com.example.meyepro.TeacherDashBoard.TaskReport.TeacherTaskReportFragment;
 import com.example.meyepro.databinding.ActivityTeacherDashBoardBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -48,6 +49,11 @@ ActivityTeacherDashBoardBinding Binding;
                         Intent i = new Intent(getApplicationContext(),TeacherAttendanceMarkActivity.class);
                         i.putExtra("IntentData",Intendata);
                         startActivity(i);
+//                        loadFragment(new TeacherAttendanceMarkActivity());
+                        break;
+
+                    case R.id.action_Teacher_Task_Report:
+                        loadFragment(new TeacherTaskReportFragment());
 //                        loadFragment(new TeacherAttendanceMarkActivity());
                         break;
 

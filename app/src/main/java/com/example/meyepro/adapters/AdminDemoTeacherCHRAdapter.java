@@ -15,6 +15,9 @@ import com.example.meyepro.R;
 import com.example.meyepro.api.Api;
 import com.example.meyepro.databinding.RecyclerViewAdminSettingDemoCellBinding;
 import com.example.meyepro.fragments.Admin.Setting.DemoVideo.AdminSettingDemoVideoTeacherCHRReportActivity;
+import com.example.meyepro.fragments.Admin.Setting.TaskDemo.AdminTaskDemoActivity;
+import com.example.meyepro.fragments.Admin.Setting.TaskDemo.AdminTaskDemoDetailsShowActivity;
+import com.example.meyepro.fragments.Admin.TaskReport.AdminTaskReportDetailsActivity;
 import com.example.meyepro.models.TeacherDemoCHR;
 import com.squareup.picasso.Picasso;
 
@@ -24,10 +27,17 @@ public class AdminDemoTeacherCHRAdapter extends RecyclerView.Adapter<AdminDemoTe
 
     private ArrayList<TeacherDemoCHR> List;
     private Context context;
+    String ActivtyName="";
 
     public AdminDemoTeacherCHRAdapter(ArrayList<TeacherDemoCHR> List, Context context) {
         this.List = List;
         this.context = context;
+
+    }
+    public AdminDemoTeacherCHRAdapter(ArrayList<TeacherDemoCHR> List, Context context,String ActivityNAme) {
+        this.List = List;
+        this.context = context;
+        this.ActivtyName=ActivityNAme;
 
     }
     @NonNull
@@ -54,11 +64,19 @@ public class AdminDemoTeacherCHRAdapter extends RecyclerView.Adapter<AdminDemoTe
         holder.binding.lineraLayoutCellClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, ""+obj.getFile(), Toast.LENGTH_SHORT).show();
-                Intent i= new Intent(context, AdminSettingDemoVideoTeacherCHRReportActivity.class);
-                i.putExtra("VideoFile", obj.getFile());
-                i.putExtra("Thumbnail", obj.getThumbnail());
-                context.startActivity(i);
+                if(ActivtyName.contains("AdminTaskDemoActivity")){
+                    Intent i= new Intent(context, AdminTaskDemoDetailsShowActivity.class);
+                    i.putExtra("VideoFile", obj.getFile());
+                    i.putExtra("Thumbnail", obj.getThumbnail());
+                    context.startActivity(i);
+                }else {
+                    Toast.makeText(context, ""+obj.getFile(), Toast.LENGTH_SHORT).show();
+                    Intent i= new Intent(context, AdminSettingDemoVideoTeacherCHRReportActivity.class);
+                    i.putExtra("VideoFile", obj.getFile());
+                    i.putExtra("Thumbnail", obj.getThumbnail());
+                    context.startActivity(i);
+                }
+
             }
         });
     }

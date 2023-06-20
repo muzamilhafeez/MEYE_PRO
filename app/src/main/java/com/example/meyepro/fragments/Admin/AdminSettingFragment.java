@@ -17,8 +17,11 @@ import com.example.meyepro.fragments.Admin.Setting.AssignCourse.AdminSettingAssi
 import com.example.meyepro.fragments.Admin.Setting.CameraSetting.AdminSettingCameraSettingClickFragment;
 import com.example.meyepro.fragments.Admin.Setting.DemoVideo.AdminSettingTeacherVideoDemoActivity;
 import com.example.meyepro.fragments.Admin.Setting.RuleSetting.AdminSettingRuleSettingClickFragment;
+import com.example.meyepro.fragments.Admin.Setting.TaskDemo.AdminTaskDemoActivity;
+import com.example.meyepro.fragments.Admin.Setting.TaskDemo.AdminTaskDemoDetailsShowActivity;
 import com.example.meyepro.fragments.Admin.Setting.TimeTableUpload.TimetableUploadActivity;
 import com.example.meyepro.fragments.Admin.Setting.UserDetails.UserInformationFragment;
+import com.example.meyepro.fragments.Admin.TaskReport.AdminTaskReportActivity;
 
 
 public class AdminSettingFragment extends Fragment {
@@ -32,6 +35,20 @@ FragmentAdminSettingBinding Binding;
         Binding = FragmentAdminSettingBinding.inflate(inflater, container, false);
         //code
 
+        Binding.txtViewAdminTaskDemo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(), AdminTaskDemoActivity.class);
+                startActivity(i);
+            }
+        });
+        Binding.txtViewAdminTaskReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(getContext(), AdminTaskReportActivity.class);
+                startActivity(i);
+            }
+        });
         Binding.txtViewAdminSettingReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,14 +78,14 @@ FragmentAdminSettingBinding Binding;
                 loadFragment(new UserInformationFragment());
             }
         });
-        Binding.txtViewAdminSettingTimetableUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent i = new Intent(getContext(), TimetableUploadActivity.class);
-                startActivity(i);
-            }
-        });
+//        Binding.txtViewAdminSettingTimetableUpload.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent i = new Intent(getContext(), TimetableUploadActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
         Binding.txtViewAdminSettingAssignCourse.setOnClickListener(new View.OnClickListener() {
             @Override

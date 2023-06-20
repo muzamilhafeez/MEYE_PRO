@@ -72,6 +72,7 @@ ActivityStudentDashBoardBinding binding;
                     notificationArrayList.addAll(response.body());
 //                    showMultipleNotifications(notificationArrayList);
                     // Initialize the handler and the runnable
+                    showNotification();
                     /****** Create Thread that will sleep for 5 seconds****/
                     Thread background = new Thread() {
                         public void run() {
@@ -90,7 +91,7 @@ ActivityStudentDashBoardBinding binding;
                                                 @Override
                                                 public void onResponse(Call<Integer> call, Response<Integer> response) {
                                                     if(response.isSuccessful()){
-                                                        Toast.makeText(StudentDashBoardActivity.this, ""+response.body(), Toast.LENGTH_SHORT).show();
+//                                                        Toast.makeText(StudentDashBoardActivity.this, ""+response.body(), Toast.LENGTH_SHORT).show();
                                                         if(response.body()!=-1&& notification!=response.body()){
                                                             showMultipleNotifications(notificationArrayList);
 
@@ -239,30 +240,69 @@ ActivityStudentDashBoardBinding binding;
 //
 //  }
 private void showNotification() {
-    int notificationId = 1;
-    final int NOTIFY_ME_ID=1337;
-    /*********** Create notification channel ***********/
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        NotificationChannel channel = new NotificationChannel(channelId, "MyChannel", NotificationManager.IMPORTANCE_DEFAULT);
-        NotificationManager notificationManager = getSystemService(NotificationManager.class);
-        notificationManager.createNotificationChannel(channel);
-    }
-    /*********** Create notification ***********/
-    NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setContentTitle("Android Example Notification Title")
-            .setContentText("This is the android example notification message")
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
+//    int notificationId = 1;
+//    final int NOTIFY_ME_ID=1337;
+//    /*********** Create notification channel ***********/
+//    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//        NotificationChannel channel = new NotificationChannel(channelId, "MyChannel", NotificationManager.IMPORTANCE_DEFAULT);
+//        NotificationManager notificationManager = getSystemService(NotificationManager.class);
+//        notificationManager.createNotificationChannel(channel);
+//    }
+//    /*********** Create notification ***********/
+//    NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
+//            .setSmallIcon(R.drawable.ic_launcher_foreground)
+//            .setContentTitle("Android Example Notification Title")
+//            .setContentText("This is the android example notification message")
+//            .setPriority(NotificationCompat.PRIORITY_HIGH)
+//            .setAutoCancel(true);
+//
+//    // This pending intent will open after notification click
+//    Intent intent = new Intent(this,StudentNotificationActivity.class);
+//    PendingIntent i = PendingIntent.getActivity(this, 0, new Intent(this, StudentNotificationActivity.class), PendingIntent.FLAG_IMMUTABLE);
+//
+//    builder.setContentIntent(i);
+//
+//    NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+//    notificationManagerCompat.notify(NOTIFY_ME_ID, builder.build());
+
+    NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+// Notification 1
+    NotificationCompat.Builder notificationBuilder1 = new NotificationCompat.Builder(this, "normal")
+            .setContentTitle("Notification 1")
+            .setContentText("This is the content for Notification 1")
+            .setWhen(System.currentTimeMillis())
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
             .setAutoCancel(true);
 
-    // This pending intent will open after notification click
-    Intent intent = new Intent(this,StudentNotificationActivity.class);
-    PendingIntent i = PendingIntent.getActivity(this, 0, new Intent(this, StudentNotificationActivity.class), PendingIntent.FLAG_IMMUTABLE);
+    Notification notification1 = notificationBuilder1.build();
+    notificationManager.notify(1, notification1);
 
-    builder.setContentIntent(i);
+// Notification 2
+    NotificationCompat.Builder notificationBuilder2 = new NotificationCompat.Builder(this, "normal")
+            .setContentTitle("Notification 2")
+            .setContentText("This is the content for Notification 2")
+            .setWhen(System.currentTimeMillis())
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+            .setAutoCancel(true);
 
-    NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
-    notificationManagerCompat.notify(NOTIFY_ME_ID, builder.build());
+    Notification notification2 = notificationBuilder2.build();
+    notificationManager.notify(2, notification2);
+
+// Notification 3
+    NotificationCompat.Builder notificationBuilder3 = new NotificationCompat.Builder(this, "normal")
+            .setContentTitle("Notification 3")
+            .setContentText("This is the content for Notification 3")
+            .setWhen(System.currentTimeMillis())
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+            .setAutoCancel(true);
+
+    Notification notification3 = notificationBuilder3.build();
+    notificationManager.notify(3, notification3);
+
 }
 
 }

@@ -11,6 +11,7 @@ import com.example.meyepro.DirectorDashBoard.Model.ScheduleDetailsAndCHR;
 import com.example.meyepro.StudentDashBoard.Model.StudentCourse;
 import com.example.meyepro.StudentDashBoard.Model.StudentNotification;
 import com.example.meyepro.StudentDashBoard.Model.StudentOFCourseAttendance;
+import com.example.meyepro.adapters.TaskReportShowAdapter;
 import com.example.meyepro.models.Attendance;
 import com.example.meyepro.models.CAMERA;
 import com.example.meyepro.models.ClaimVideo;
@@ -25,6 +26,7 @@ import com.example.meyepro.models.SectionOffer;
 import com.example.meyepro.models.Student;
 import com.example.meyepro.models.Swapping;
 import com.example.meyepro.models.SwappingUser;
+import com.example.meyepro.models.TaskReport;
 import com.example.meyepro.models.TeacherDemoCHR;
 import com.example.meyepro.models.TimeTable;
 import com.example.meyepro.models.recordings_details_by_teachername;
@@ -59,7 +61,7 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface Api {
-    public static String BASE_URL="http://192.168.100.5:8000/";
+    public static String BASE_URL="http://192.168.43.187:8000/";
 
     //start function
     @GET("api/signin")
@@ -94,6 +96,9 @@ public interface Api {
 
     @GET("api/demovideos")
     public Call<DemoVideosResponse> api_demovideos(@Query("file") String file );
+
+    @GET("task")
+    public Call<String> api_Task(@Query("videopath") String file );
 
     @GET("api/get-student-notification-data")
     public Call<ArrayList<StudentNotification>> api_get_student_notification_data(@Query("aridNumber") String aridNumber );
@@ -142,6 +147,9 @@ public interface Api {
     public Call<ArrayList<ScheduleDetailsAndCHR>> get_teacher_chr(@Query("teacherName") String teacherName);
     @GET("api/get-all-teacher-chr")
     public Call<String> get_all_teacher_chr();
+
+    @GET("api/taskreport")
+    public Call<ArrayList<TaskReport>> api_taskreport();
     @POST("api/add-camera")
     public Call<CAMERA> saveCamera(@Body CAMERA camera);
     @POST("api/add-dvr")

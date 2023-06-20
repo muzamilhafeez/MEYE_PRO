@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Admin.Setting.TaskDemo.AdminTaskDemoDetailsShowActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ImageViewThumnail"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="5dp"
+        android:adjustViewBounds="true"
+        android:elevation="2dp"
+        android:maxWidth="20dp"
+        android:maxHeight="20dp"
+        android:scaleType="fitXY"
+        android:foregroundGravity="center"
+        android:background="@color/white"
+        android:src="@drawable/image_icon"
+        app:shapeAppearanceOverlay="@style/imageViewRounded"
+        app:strokeColor="@android:color/black" />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="200dp"
+        android:layout_height="130dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:foregroundGravity="center" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="check"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:id="@+id/txt_view_response"/>
+    </LinearLayout>
+</RelativeLayout>

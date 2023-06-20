@@ -77,13 +77,13 @@ ActivityTeacherSelectTimTableChractivityBinding binding;
         String data= getIntent().getStringExtra("UserLogin");
         MEYE_USER user= new Gson().fromJson(data,type);
 
-        binding.btnClaim.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), teacherCHRClaimVideoActivity.class);
-                startActivity(i);
-            }
-        });
+//        binding.btnClaim.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(getApplicationContext(), teacherCHRClaimVideoActivity.class);
+//                startActivity(i);
+//            }
+//        });
         binding.txtCourse.setText(obj.getCourseName());
         binding.txtDate.setText(""+obj.getDate());
         binding.txtDay.setText(""+obj.getDay());
